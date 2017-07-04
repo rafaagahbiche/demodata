@@ -10,7 +10,7 @@ namespace demo.data
 	{
 		int Insert(IEntity item);
 		void Update(IEntity item);
-		void Delete(int id);
+		void Delete(int id); 
 
 	}
 }
