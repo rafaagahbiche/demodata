@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <articles>
+    <article id="1">
+      <description></description>
+      <pages>
+        <page id="1"></page>
+      </pages>
+    </article>
+    <article id="2"></article>
+    <article id="3"></article>
+  </articles>
+  <pages>
+    <page id="1">
+      <title></title>
+      <content></content>
+    </page>
+    <page id="2">
+      <title></title>
+      <content></content>
+    </page>
+    <page id="3">
+      <title></title>
+      <content></content>
+    </page>
+  </pages>
+</data>
