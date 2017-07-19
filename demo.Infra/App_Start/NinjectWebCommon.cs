@@ -18,7 +18,7 @@ namespace demo.Infra.App_Start
 	{
 		private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 		private static readonly string _path = @"/App_Data/data.xml";
-			//HttpContext.Current.Server.MapPath(@"/App_Data/data.xml");
+			
 
 		/// <summary>
 		/// Starts the application
@@ -66,7 +66,10 @@ namespace demo.Infra.App_Start
 		/// <param name="kernel">The kernel.</param>
 		private static void RegisterServices(IKernel kernel)
 		{
-			kernel.Bind<IDataContext>().To<DataContext>().InRequestScope();
+			var filepath = System.Configuration.ConfigurationManager.AppSettings["datafile"];
+
+			kernel.Bind<IDataContext>().To<DataContext>().InRequestScope()
+				.WithConstructorArgument("path", string.Format(@"{0}", filepath));
 
 			kernel.Bind<IArticleService>().To<ArticleService>();
 			kernel.Bind<IPageService>().To<PageService>();
@@ -77,8 +80,8 @@ namespace demo.Infra.App_Start
 			kernel.Bind<IManagerFactory<ArticleData>>().To<ManagerFactory<ArticleData>>();
 			kernel.Bind<IManagerFactory<PageData>>().To<ManagerFactory<PageData>>();
 
-			kernel.Bind<IArticleManager>().To<ArticleManager>();
-			kernel.Bind<IPageManager>().To<PageManager>();
+			kernel.Bind<IManager<ArticleData>>().To<ArticleManager>();
+			kernel.Bind<IManager<PageData>>().To<PageManager>();
 		}
 	}
 }

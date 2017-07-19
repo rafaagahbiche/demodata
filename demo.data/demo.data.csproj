@@ -41,21 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IArticleManager.cs" />
     <Compile Include="Abstract\IDataContext.cs" />
     <Compile Include="Abstract\IManager.cs" />
     <Compile Include="Abstract\IManagerFactory.cs" />
-    <Compile Include="Abstract\IPageManager.cs" />
     <Compile Include="Abstract\Manager.cs" />
-    <Compile Include="Abstract\ManagerFactory.cs" />
+    <Compile Include="Concrete\ManagerFactory.cs" />
     <Compile Include="DataModel\ArticleData.cs" />
     <Compile Include="Concrete\ArticleManager.cs" />
-    <Compile Include="Concrete\ArticleManagerFactory.cs" />
     <Compile Include="Concrete\DataContext.cs" />
     <Compile Include="DataModel\ItemData.cs" />
     <Compile Include="DataModel\PageData.cs" />
     <Compile Include="Concrete\PageManager.cs" />
-    <Compile Include="Concrete\PageManagerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

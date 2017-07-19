@@ -1,15 +1,19 @@
 ﻿namespace demo.data
 {
+	using System;
 	using System.Xml.Linq;
 
 	public class DataContext: IDataContext
 	{
 		//private static readonly string _path = "@/Data/data.xml";
 		private XDocument _dataXml;
-		//private string path;
-		private static readonly string path = @"/App_Data/data.xml";
-		public DataContext()
+		
+		private string path;
+		public DataContext(string path)
 		{
+			//HttpContext.Current.Server.MapPath
+			//this.path = System.IO.Directory.GetCurrentDirectory HttpContext.Current.Server.MapPath(path);
+			this.path = path;
 			_dataXml = XDocument.Load(path);
 		}
 

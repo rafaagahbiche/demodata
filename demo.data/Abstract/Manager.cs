@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.XPath;
-
-namespace demo.data
+﻿namespace demo.data
 {
-	public class Manager<IEntity> : IManager<IEntity> 
+	using System.Linq;
+	using System.Xml.XPath;
+
+	public class Manager<IEntity>
 		where IEntity : ItemData
 	{
 		protected IDataContext context;
 
-		public Manager(IDataContext _context)
+		public Manager(IDataContext context)
 		{
-			this.context = _context;
+			this.context = context;
 		}
-
 
 		protected int GetMaxId()
 		{
@@ -33,22 +28,22 @@ namespace demo.data
 			return maxId;
 		}
 
-		public virtual void Delete(int id) { }
+		//public virtual void Delete(int id) { }
 
-		public virtual IQueryable<IEntity> GetAll()
-		{
-			throw new NotImplementedException();
-		}
+		//public virtual IQueryable<IEntity> GetAll()
+		//{
+		//	throw new NotImplementedException();
+		//}
 
-		public virtual int Insert(IEntity item)
-		{
-			throw new NotImplementedException();
-		}
+		//public virtual int Insert(IEntity item)
+		//{
+		//	throw new NotImplementedException();
+		//}
 
-		public virtual bool Update(IEntity item)
-		{
-			throw new NotImplementedException();
-		}
+		//public virtual bool Update(IEntity item)
+		//{
+		//	throw new NotImplementedException();
+		//}
 
 	}
 }

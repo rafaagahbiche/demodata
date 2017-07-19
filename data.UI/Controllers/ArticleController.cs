@@ -9,10 +9,6 @@ namespace demo.UI.Controllers
     {
 		private readonly IArticleService service;
 
-		//public ArticleController()
-		//{
-		//	this.service = new ArticleService();
-		//}
 		public ArticleController(IArticleService service)
 		{
 			this.service = service;

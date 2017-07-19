@@ -5,7 +5,7 @@
 	using System.Xml.Linq;
 	using System.Xml.XPath;
 
-	public class PageManager : Manager<PageData>, IPageManager
+	public class PageManager : Manager<PageData>, IManager<PageData>
 	{
 		public PageManager(IDataContext _context) 
 			: base(_context)
@@ -28,7 +28,7 @@
 		//	return maxId;
 		//}
 
-		public override IQueryable<PageData> GetAll()
+		public IQueryable<PageData> GetAll()
 		{
 			return (from page in context.DataXml
 					.Element("data")
@@ -42,7 +42,7 @@
 					}).AsQueryable();
 		}
 
-		public override int Insert(PageData item)
+		public int Insert(PageData item)
 		{
 			var maxId = GetMaxId();
 			var newItem = new XElement("page",
@@ -58,13 +58,13 @@
 			return maxId;
 		}
 
-		public override void Delete(int id)
+		public void Delete(int id)
 		{
 			context.SaveFile();
 			throw new NotImplementedException();
 		}
 
-		public override bool Update(PageData item)
+		public bool Update(PageData item)
 		{
 			bool updateSucceeded = false;
 			context.SaveFile();

@@ -3,9 +3,9 @@
 	using System;
 	using System.Linq;
 	using System.Xml.Linq;
-	using System.Xml.XPath;
 
-	public class ArticleManager: Manager<ArticleData>, IArticleManager
+	public class ArticleManager: Manager<ArticleData>, IManager<ArticleData>
+	//Manager<ArticleData>, IArticleManager
 	{
 		//private IDataContext context;
 
@@ -31,7 +31,7 @@
 		//}
 
 
-		public override IQueryable<ArticleData> GetAll()
+		public IQueryable<ArticleData> GetAll()
 		{
 			var dd = context.DataXml.Element("data");
 
@@ -50,12 +50,12 @@
 					}).AsQueryable();
 		}
 
-		public override void Delete(int id)
+		public void Delete(int id)
 		{
 			context.SaveFile();
 		}
 
-		public override int Insert(ArticleData item)
+		public int Insert(ArticleData item)
 		{
 			var maxId = GetMaxId();
 			var newItem = new XElement("article", 
@@ -70,7 +70,7 @@
 			return maxId;
 		}
 
-		public override bool Update(ArticleData item)
+		public bool Update(ArticleData item)
 		{
 			bool updateSucceeded = false;
 			context.SaveFile();
