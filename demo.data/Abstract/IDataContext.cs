@@ -10,5 +10,6 @@ namespace demo.data
 	public interface IDataContext
 	{
 		XDocument DataXml { get; }
+		void SaveFile();
 	}
 }

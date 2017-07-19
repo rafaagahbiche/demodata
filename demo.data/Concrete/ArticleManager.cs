@@ -1,45 +1,80 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace demo.data
+﻿namespace demo.data
 {
-	public class ArticleManager: IManager<ArticleData>
+	using System;
+	using System.Linq;
+	using System.Xml.Linq;
+	using System.Xml.XPath;
+
+	public class ArticleManager: Manager<ArticleData>, IArticleManager
 	{
-		private IDataContext context;
+		//private IDataContext context;
 
-		public ArticleManager(IDataContext _context)
+		public ArticleManager(IDataContext _context) 
+			: base(_context)
 		{
-			this.context = _context;
+			//this.context = _context;
 		}
 
-		public virtual IEnumerable<ArticleData> Articles
+		//private int GetMaxId()
+		//{
+		//	int maxId = -1;
+		//	try
+		//	{
+		//		maxId = context
+		//			.DataXml
+		//			.XPathSelectElements("//data/pages/page")
+		//			.Max(c => (int)c.Attribute("id"));
+		//	}
+		//	catch { }
+
+		//	return maxId;
+		//}
+
+
+		public override IQueryable<ArticleData> GetAll()
 		{
-			get
-			{
-				return from article in context.DataXml.Descendants("article")
-					   select new ArticleData
-					   {
-						   Id = Convert.ToInt32(article.Attribute("id").Value),
-						   Title = article.Element("title").Value
-					   };
-			}
+			var dd = context.DataXml.Element("data");
+
+			return (from article in context.DataXml
+					.Element("data")
+					.Element("articles")
+					.Descendants("article")
+					select new ArticleData
+					{
+						Id = article.Attribute("id") != null 
+							? Convert.ToInt32(article.Attribute("id").Value) : -1,
+						Title = article.Element("title") != null 
+							? article.Element("title").Value : string.Empty,
+						Description = article.Element("description") != null 
+							? article.Element("description").Value : string.Empty
+					}).AsQueryable();
 		}
 
-		public void Delete(int id)
+		public override void Delete(int id)
 		{
-			throw new NotImplementedException();
-		}
-		public int Insert(ArticleData item)
-		{
-			throw new NotImplementedException();
+			context.SaveFile();
 		}
 
-		public void Update(ArticleData item)
+		public override int Insert(ArticleData item)
 		{
-			throw new NotImplementedException();
+			var maxId = GetMaxId();
+			var newItem = new XElement("article", 
+				new XElement("title", item.Title),
+				new XElement("description", item.Description));
+			var newId = new XAttribute("id", maxId + 1);
+			newItem.Add(newId);
+			context.DataXml
+				.Element("data")
+				.Element("articles").Add(newItem);
+			context.SaveFile();
+			return maxId;
+		}
+
+		public override bool Update(ArticleData item)
+		{
+			bool updateSucceeded = false;
+			context.SaveFile();
+			return updateSucceeded;
 		}
 	}
 }

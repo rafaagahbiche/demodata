@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace demo.data
+﻿namespace demo.data
 {
-	public abstract class ManagerFactory<IEntity> where IEntity : Item
+	public class ManagerFactory<IEntity> : IManagerFactory<IEntity> 
+		where IEntity : ItemData
 	{
-		public abstract IManager<IEntity> GetManager();
+		private IManager<IEntity> manager;
+
+		public ManagerFactory(IManager<IEntity> manager)
+		{
+			this.manager = manager;
+		}
+
+		public IManager<IEntity> GetManager()
+		{
+			return manager;
+		}
 	}
 }

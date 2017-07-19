@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>demo.data</RootNamespace>
     <AssemblyName>demo.data</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,21 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IArticleManager.cs" />
     <Compile Include="Abstract\IDataContext.cs" />
     <Compile Include="Abstract\IManager.cs" />
+    <Compile Include="Abstract\IManagerFactory.cs" />
+    <Compile Include="Abstract\IPageManager.cs" />
+    <Compile Include="Abstract\Manager.cs" />
     <Compile Include="Abstract\ManagerFactory.cs" />
-    <Compile Include="Concrete\ArticleData.cs" />
+    <Compile Include="DataModel\ArticleData.cs" />
     <Compile Include="Concrete\ArticleManager.cs" />
     <Compile Include="Concrete\ArticleManagerFactory.cs" />
     <Compile Include="Concrete\DataContext.cs" />
-    <Compile Include="Concrete\Item.cs" />
-    <Compile Include="Concrete\PageData.cs" />
+    <Compile Include="DataModel\ItemData.cs" />
+    <Compile Include="DataModel\PageData.cs" />
+    <Compile Include="Concrete\PageManager.cs" />
+    <Compile Include="Concrete\PageManagerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test\main.cs" />
-    <Compile Include="Test\Repo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\data.xml" />
+    <Content Include="Data\data.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
