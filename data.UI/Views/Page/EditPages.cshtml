@@ -1,0 +1,48 @@
+﻿@using demo.Service;
+
+@model ArticlePages
+
+<div class="form-group edit-pages">
+    <div class="pages-tabs">
+        <ul class="tab-links" id="tabs">
+            @if (Model != null && Model.Pages != null)
+            {
+                int tabCount = 0;
+                foreach (var page in Model.Pages)
+                {
+                    ViewData["count"] = tabCount++;
+                    { Html.RenderPartial("~/Views/Page/PageTab.cshtml", page); }
+                }
+            }
+            else
+            {
+                ViewData["count"] = 0;
+                {
+                    Html.RenderPartial("~/Views/Page/PageTab.cshtml", new PageViewModel
+                    {
+                        Id = -1,
+                        ArticleId = Model.ArticleId
+                    });
+                }
+            }
+            <li class="plus">
+                <a id="tabplus" href="#">&#x2B;</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-10 tab-content" id="tobeupdated">
+        @if (Model.FirstPage != null)
+        {
+            { Html.RenderPartial("~/Views/Page/Edit.cshtml", Model.FirstPage); }
+        }
+        else
+        {
+            {
+                Html.RenderPartial("~/Views/Page/Edit.cshtml",
+                  new PageViewModel() { Id = -1 });
+            }
+        }
+    </div>
+</div>
+
+

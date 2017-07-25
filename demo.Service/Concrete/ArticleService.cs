@@ -4,62 +4,91 @@
 	using demo.Domain;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System;
 
 	public class ArticleService: IArticleService
-	//IService<ArticleViewModel>
 	{
-		private readonly IRepo<ArticleData> repo;
+		private readonly IRepo<ArticleData> articleRepo;
+		private readonly IRepo<PageData> pageRepo;
 
-		//public ArticleService()
-		//{
-		//	repo = new Repo<ArticleData>(
-		//		new ArticleManagerFactory(
-		//			new ArticleManager(
-		//				new DataContext(
-		//					System.Web.HttpContext.Current.
-		//					Server.MapPath(@"/App_Data/data.xml")))));
-		//}
-
-		public ArticleService(IRepo<ArticleData> repo)
+		public ArticleService(IRepo<ArticleData> articleRepo, IRepo<PageData> pageRepo)
 		{
-			this.repo = repo;
+			this.articleRepo = articleRepo;
+			this.pageRepo = pageRepo;
 		}
 
 		public void Delete(int Id)
 		{
-			repo.Delete(Id);
+			articleRepo.Delete(Id);
 		}
 
 		public ArticleViewModel Get(int id)
 		{
-			var articleData = repo.GetAll().FirstOrDefault(x => x.Id.Equals(id));
-			return articleData.GetViewModel();
+			var articleData = articleRepo.GetAll().FirstOrDefault(x => x.Id.Equals(id));
+			return GetArticle(articleData);
 		}
 
 		public IEnumerable<ArticleViewModel> GetAll()
 		{
-			foreach(var item in repo.GetAll())
+			foreach(var item in articleRepo.GetAll())
 			{
 				yield return item.GetViewModel();
 			}
 		}
 
+		public ArticlesGlobe GetGlobe()
+		{
+			return new ArticlesGlobe()
+			{
+				Articles = GetAll(),
+				First = GetArticle(articleRepo.GetAll().FirstOrDefault())
+			};
+		}
+
 		public int Insert(ArticleViewModel item)
 		{
 			var article = item.GetDataModel();
-			return repo.Insert(article).Id;
+			return articleRepo.Insert(article).Id;
 		}
 
 		public bool Update(ArticleViewModel item)
 		{
 			var article = item.GetDataModel();
-			return repo.Update(article);
+			return articleRepo.Update(article);
 		}
 
-		//public IEnumerable<PageViewModel> GetPages(int articleId)
-		//{
-		//	var article = repo.GetAll().First<ArticleData>(x => x.Id.Equals(articleId));
-		//}
+		public IEnumerable<PageViewModel> GetPages(int articleId)
+		{
+			var pages = pageRepo.GetAll().Where(x => x.ArticleId.Equals(articleId));
+			foreach(var page in pages)
+			{
+				yield return page.GetViewModel();
+			}
+		}
+
+		public PageViewModel GetFirstPage(int articleId)
+		{
+			PageData page = null;
+			try
+			{
+				page = pageRepo.GetAll().First(x => x.ArticleId.Equals(articleId));
+				if (page != null)
+				{
+					return page.GetViewModel();
+				}
+			}
+			catch  { }
+
+			return null;
+		}
+
+		private ArticleViewModel GetArticle(ArticleData articleData)
+		{
+			var article = articleData.GetViewModel();
+			article.PagesGlobe = new ArticlePages();
+			article.PagesGlobe.FirstPage = GetFirstPage(articleData.Id);
+			article.PagesGlobe.Pages = GetPages(articleData.Id);
+			article.PagesGlobe.ArticleId = articleData.Id;
+			return article;
+		}
 	}
 }

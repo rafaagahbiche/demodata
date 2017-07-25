@@ -1,0 +1,34 @@
+﻿@using demo.Service
+@model ArticlesGlobe
+
+@section Scripts {
+}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div id="articles-list">
+        @foreach (var article in Model.Articles)
+        {
+            <div>
+                <span>
+                    @Ajax.ActionLink(article.Title, "EditAction", "Article",
+                      new { id = article.Id },
+                      new AjaxOptions()
+                      {
+                          HttpMethod = "GET",
+                          UpdateTargetId = "article-details",
+                          InsertionMode = InsertionMode.Replace,
+                          OnComplete = "init"
+                      })
+            </span>
+        </div>
+        }
+    </div>
+    <div id="article-details">
+        @{ Html.RenderPartial("~/Views/Article/Edit.cshtml", Model.First); }
+    </div>
+</div>

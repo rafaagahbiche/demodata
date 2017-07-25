@@ -128,6 +128,9 @@
     <Content Include="Scripts\backoffice\jquery.page-article.save.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -135,6 +138,7 @@
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\tinymce\jquery.tinymce.js" />
     <Content Include="Scripts\tinymce\langs\en.js" />
+    <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advhr\css\advhr.css" />
     <Content Include="Scripts\tinymce\plugins\advhr\editor_plugin.js" />
@@ -383,6 +387,14 @@
     <Content Include="Scripts\tinymce\plugins\xhtmlxtras\langs\en_dlg.js" />
     <Content Include="Scripts\tinymce\skins\lightgray\content.inline.min.css" />
     <Content Include="Scripts\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\img\anchor.gif" />
     <Content Include="Scripts\tinymce\skins\lightgray\img\loader.gif" />
     <Content Include="Scripts\tinymce\skins\lightgray\img\object.gif" />
@@ -464,6 +476,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\ArticleListController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -479,20 +492,14 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Menu.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\Article\Edit.cshtml" />
     <Content Include="Views\Page\Edit.cshtml" />
     <Content Include="Views\Page\EditInfos.cshtml" />
     <Content Include="Views\Page\Delete.cshtml" />
-    <Content Include="Scripts\tinymce\langs\readme.md" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.svg" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\ArticleList\Index.cshtml" />
+    <Content Include="Views\Page\EditPages.cshtml" />
+    <Content Include="Views\Page\PageTab.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\tinymce_jquery_full.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -524,7 +531,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64128</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

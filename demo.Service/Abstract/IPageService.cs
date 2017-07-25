@@ -9,10 +9,18 @@ namespace demo.Service
 	public interface IPageService
 	{
 		IEnumerable<PageViewModel> GetAll();
+
 		int Insert(PageViewModel page);
 		void Delete(int Id);
+
 		bool Update(PageViewModel page);
 
 		PageViewModel Get(int id);
+
+		IEnumerable<PageViewModel> GetPagesByArticleId(int articleId);
+
+		int PagesCountByArticleId(int articleId);
+
+		PageViewModel GetFirstPageByArticleId(int articleId);
 	}
 }

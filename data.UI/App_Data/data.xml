@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <articles>
     <article id="1">
@@ -17,16 +17,41 @@
   </articles>
   <pages>
     <page id="1">
-      <content></content>
+      <content>asdfdsdfsdaf</content>
       <articleId>2</articleId>
     </page>
     <page id="2">
-      <content></content>
+      <content>&amp;lt;p&amp;gt;sdfsadfsdfsd&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;nouveau contenu&amp;amp;iexcl;&amp;amp;iexcl;&amp;amp;iexcl;&amp;lt;/p&amp;gt;</content>
       <articleId>2</articleId>
     </page>
     <page id="3">
-      <content></content>
+      <content>dsafdsafdsa</content>
       <articleId>1</articleId>
+    </page>
+    <page id="4">
+      <content>dsafdsafdsa</content>
+      <articleId>3</articleId>
+    </page>
+    <page id="5">
+      <content>&amp;lt;p&amp;gt;zdfsf sdfasdf dsfsd&amp;lt;/p&amp;gt;</content>
+      <articleId>1</articleId>
+    </page>
+    <page id="6">
+      <content>&amp;lt;p&amp;gt;dfgsdf dfgsdfg&amp;amp;nbsp;&amp;lt;/p&amp;gt;</content>
+      <articleId>1</articleId>
+    </page>
+    <page id="8">
+      <content>&amp;lt;p&amp;gt;dfgdfsg fgdfg&amp;lt;/p&amp;gt;</content>
+      <articleId>1</articleId>
+    </page>
+    <page id="10">
+      <content>&amp;lt;p&amp;gt;iuo Nouvelle page&amp;lt;/p&amp;gt;</content>
+      <articleId>3</articleId>
+    </page>
+    <page id="11">
+      <content>&amp;lt;p&amp;gt;une autre page&amp;lt;/p&amp;gt;</content>
+      <articleId>3</articleId>
     </page>
   </pages>
 </data>

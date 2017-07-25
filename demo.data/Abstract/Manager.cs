@@ -27,23 +27,5 @@
 
 			return maxId;
 		}
-
-		//public virtual void Delete(int id) { }
-
-		//public virtual IQueryable<IEntity> GetAll()
-		//{
-		//	throw new NotImplementedException();
-		//}
-
-		//public virtual int Insert(IEntity item)
-		//{
-		//	throw new NotImplementedException();
-		//}
-
-		//public virtual bool Update(IEntity item)
-		//{
-		//	throw new NotImplementedException();
-		//}
-
 	}
 }

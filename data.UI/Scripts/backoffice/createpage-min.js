@@ -42,7 +42,7 @@ function showDeleteWarning(show) {
 }
 
 function callCreateArticlePageSync(url, pageViewModel) {
-    var oldPageId = pageViewModel.PageId;
+    var oldPageId = pageViewModel.Id;
     $.ajax({
         url: url,
         cache: false,
@@ -79,7 +79,7 @@ var AddTabOnclick = function () {
         disableTabLinks(true);
         var parentId = $('div#article').children('input#pagefuckingId').val();
         $.ajax({
-            url: '/Article/AddNewTab',
+            url: '/Page/AddNewTab',
             type: "GET",
             data: { articleId: parentId },
             success: function (data) {
@@ -88,7 +88,7 @@ var AddTabOnclick = function () {
         });
 
         $.ajax({
-            url: '/Article/ShowPageContent',
+            url: '/Page/ShowPageContent',
             type: "GET",
             data: { pageId: -1, articleId: parentId },
             success: function (data) {
@@ -115,10 +115,10 @@ var initSavePageEvent = function () {
     $('a.save-page').bind('click', function (e) {
         $(loadingSelector).find('span').html("Saving page content...");
         switchLoading(true);
-        var id = $('div#pageinfos').children('input[name="PageId"]').val();
+        var id = $('div#pageinfos').children('input[name="Id"]').val();
         var parentId = $('div#article').children('input#pagefuckingId').val();
         var contentToSend = tinymce.activeEditor.getContent();
-        var pageViewModel = { PageId: id, ParentArticleId: parentId, PageContent: $('<div></div>').text(contentToSend).html() };
+        var pageViewModel = { Id: id, ArticleId: parentId, Content: $('<div></div>').text(contentToSend).html() };
         callCreateArticlePageSync(this.href, pageViewModel);
         e.preventDefault();
     });
@@ -153,18 +153,18 @@ var editDeleteEvent = function () {
     });
 }
 
-$(function () {
-    var init = function () {
-        AddTabOnclick();
-        //loadTinyMce();
-        //initFirstTabFirstText(false);
-        //initTabOnClick();
-        initSavePageEvent();
-        editDeleteEvent();
-        //initEditArticlePageEvent();
-        //initTabPlusOnclick();
-    }
+var init = function () {
+    AddTabOnclick();
+    //loadTinyMce();
+    //initFirstTabFirstText(false);
+    //initTabOnClick();
+    initSavePageEvent();
+    editDeleteEvent();
+    //initEditArticlePageEvent();
+    //initTabPlusOnclick();
+}
 
+$(function () {
     init();
 });
 

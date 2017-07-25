@@ -1,4 +1,4 @@
-﻿
+﻿	
 namespace demo.Service
 {
 	using System.ComponentModel.DataAnnotations;
@@ -16,7 +16,7 @@ namespace demo.Service
 			get { return HttpUtility.HtmlDecode(Content); }
 			set { Content = HttpUtility.HtmlEncode(value); }
 		}
-		public int ArticleId { get; set; }
 
+		public int ArticleId { get; set; }
 	}
 }

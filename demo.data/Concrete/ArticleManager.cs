@@ -7,34 +7,13 @@
 	public class ArticleManager: Manager<ArticleData>, IManager<ArticleData>
 	//Manager<ArticleData>, IArticleManager
 	{
-		//private IDataContext context;
-
 		public ArticleManager(IDataContext _context) 
 			: base(_context)
 		{
-			//this.context = _context;
 		}
-
-		//private int GetMaxId()
-		//{
-		//	int maxId = -1;
-		//	try
-		//	{
-		//		maxId = context
-		//			.DataXml
-		//			.XPathSelectElements("//data/pages/page")
-		//			.Max(c => (int)c.Attribute("id"));
-		//	}
-		//	catch { }
-
-		//	return maxId;
-		//}
-
 
 		public IQueryable<ArticleData> GetAll()
 		{
-			var dd = context.DataXml.Element("data");
-
 			return (from article in context.DataXml
 					.Element("data")
 					.Element("articles")

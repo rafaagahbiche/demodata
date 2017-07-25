@@ -1,7 +1,7 @@
 ﻿$(function () {
     function loadTinyMce() {
         tinymce.init({
-            selector: "textarea.content-edit",
+            selector: "textarea",
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor",
                 "searchreplace visualblocks code fullscreen",

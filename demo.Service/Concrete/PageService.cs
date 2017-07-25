@@ -10,6 +10,7 @@ namespace demo.Service
 	public class PageService: IPageService
 	{
 		private readonly IRepo<PageData> repo;
+
 		public PageService(IRepo<PageData> repo)
 		{
 			this.repo = repo;
@@ -17,13 +18,13 @@ namespace demo.Service
 
 		public void Delete(int Id)
 		{
-			throw new NotImplementedException();
+			repo.Delete(Id);
 		}
 
 		public PageViewModel Get(int id)
 		{
-			var articleData = repo.GetAll().FirstOrDefault(x => x.Id.Equals(id));
-			return articleData.GetViewModel();
+			var pageData = repo.GetAll().FirstOrDefault(x => x.Id.Equals(id));
+			return pageData.GetViewModel();
 		}
 
 		public IEnumerable<PageViewModel> GetAll()
@@ -33,12 +34,44 @@ namespace demo.Service
 
 		public int Insert(PageViewModel page)
 		{
-			throw new NotImplementedException();
+			var pageData = repo.Insert(page.GetDataModel());
+			return pageData.Id;
 		}
 
 		public bool Update(PageViewModel page)
 		{
+			return repo.Update(page.GetDataModel());
 			throw new NotImplementedException();
+		}
+
+		public IEnumerable<PageViewModel> GetPagesByArticleId(int articleId)
+		{
+			foreach(var item in repo.GetAll().Where(page => page.ArticleId == articleId))
+			{
+				yield return item.GetViewModel();
+			}
+		}
+
+		public int PagesCountByArticleId(int articleId)
+		{
+			var pages = repo.GetAll().Where(page => page.ArticleId == articleId);
+			if(pages != null)
+			{
+				return pages.Count();
+			}
+
+			return 0;
+		}
+
+		public PageViewModel GetFirstPageByArticleId(int articleId)
+		{
+			var pageData = repo.GetAll().FirstOrDefault(x => x.ArticleId.Equals(articleId));
+			if(pageData != null)
+			{
+				return pageData.GetViewModel();
+			}
+
+			return null;
 		}
 	}
 }

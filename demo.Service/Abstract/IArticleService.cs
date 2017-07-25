@@ -9,5 +9,8 @@ namespace demo.Service
 		int Insert(ArticleViewModel item);
 		void Delete(int Id);
 		bool Update(ArticleViewModel item);
+		ArticlesGlobe GetGlobe();
+		IEnumerable<PageViewModel> GetPages(int articleId);
+		PageViewModel GetFirstPage(int articleId);
 	}
 }

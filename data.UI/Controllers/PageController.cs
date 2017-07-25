@@ -6,9 +6,9 @@ namespace demo.UI.Controllers
 
 	public class PageController : Controller
     {
-		private IService<PageViewModel> service;
+		private IPageService service;
 
-		public PageController(IService<PageViewModel> service)
+		public PageController(IPageService service)
 		{
 			this.service = service;
 		}
@@ -22,13 +22,13 @@ namespace demo.UI.Controllers
 		[HttpGet]
 		public PartialViewResult ShowPageContent(int pageId, int articleId)
 		{
-			var pageViewModel = this.service.Get(pageId);
+			var pageViewModel = service.Get(pageId);
 			if (pageViewModel != null)
 			{
-				return PartialView("CreateArticlePage", pageViewModel);
+				return PartialView("Edit", pageViewModel);
 			}
 
-			return PartialView("CreateArticlePage", 
+			return PartialView("Edit", 
 				new PageViewModel() {
 					Id = -1,
 					ArticleId = articleId
@@ -50,7 +50,7 @@ namespace demo.UI.Controllers
 		{
 			if (pageViewModel == null || pageViewModel.Id == 0)
 			{
-				return PartialView("EditPageInfos", 
+				return PartialView("EditInfos", 
 					new PageViewModel() {
 						Id = -1,
 						ArticleId = -1
@@ -63,7 +63,7 @@ namespace demo.UI.Controllers
 				pageViewModel.Id = this.service.Insert(pageViewModel);
 				if (pageViewModel.Id == -1)
 				{
-					return PartialView("EditPageInfos", 
+					return PartialView("EditInfos", 
 						new PageViewModel() {
 							Id = -1,
 							ArticleId = -1
@@ -71,14 +71,34 @@ namespace demo.UI.Controllers
 				}
 				else
 				{
-					return PartialView("EditPageInfos", pageViewModel);
+					return PartialView("EditInfos", pageViewModel);
 				}
 			}
 			else
 			{
-				var updateSucceeded = this.service.Update(pageViewModel);
-				return PartialView("EditPageInfos", pageViewModel);
+				var updateSucceeded = service.Update(pageViewModel);
+				return PartialView("EditInfos", pageViewModel);
 			}
+		}
+
+		[HttpGet]
+		public PartialViewResult DeletePage(int pageId, int articleId)
+		{
+			if (pageId > 0)
+			{
+				service.Delete(pageId);
+			}
+
+			if (service.PagesCountByArticleId(articleId) > 0)
+			{
+				var firstPageViewModel = service.GetFirstPageByArticleId(articleId);
+				if (firstPageViewModel != null)
+				{
+					return PartialView("Edit", firstPageViewModel);
+				}
+			}
+
+			return PartialView("Edit", new PageViewModel() { Id = -1, ArticleId = articleId });
 		}
 	}
 }

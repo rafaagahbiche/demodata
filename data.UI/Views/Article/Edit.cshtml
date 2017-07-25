@@ -36,45 +36,9 @@
                 @Html.ValidationMessageFor(model => model.Description, string.Empty, new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group edit-pages">
-            <div class="pages-tabs">
-                <ul class="tab-links" id="tabs">
-                    @if (Model != null && Model.Pages != null)
-                    {
-                        if (Model.Pages.Count > 0)
-                        {
-                            for (int tabCount = 0; tabCount < Model.Pages.Count; tabCount++)
-                            {
-                                ViewData["count"] = tabCount;
-                                { Html.RenderPartial("PageTab", Model.Pages[tabCount]); }
-                            }
-                        }
-                        else
-                        {
-                            ViewData["count"] = 0;
-                            { Html.RenderPartial("PageTab", new PageViewModel {
-                                Id = -1,
-                                ArticleId = Model.Id
-                               });
-                            }
-                        }
-                    }
-                    <li class="plus">
-                        <a id="tabplus" href="#">&#x2B;</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-10 tab-content" id="tobeupdated">
-                @if (Model.Pages != null && Model.Pages.Count > 0)
-                {
-                    { Html.RenderPartial("~/Views/Page/Edit.cshtml", Model.Pages[0]); }
-                }
-                else
-                {
-                    { Html.RenderPartial("~/Views/Page/Edit.cshtml", 
-                        new PageViewModel() { Id = -1 }); }
-                }
-            </div>
-        </div>
+        @if (Model.PagesGlobe != null)
+        {
+           { Html.RenderPartial("~/Views/Page/EditPages.cshtml", Model.PagesGlobe);  }
+        }
     </div>
 }

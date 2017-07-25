@@ -3,30 +3,13 @@
 	using System;
 	using System.Linq;
 	using System.Xml.Linq;
-	using System.Xml.XPath;
 
 	public class PageManager : Manager<PageData>, IManager<PageData>
 	{
 		public PageManager(IDataContext _context) 
 			: base(_context)
 		{
-			//this.context = _context;
 		}
-
-		//private int GetMaxId()
-		//{
-		//	int maxId = -1;
-		//	try
-		//	{
-		//		maxId = context
-		//			.DataXml
-		//			.XPathSelectElements("//data/pages/page")
-		//			.Max(c => (int)c.Attribute("id"));
-		//	}
-		//	catch { }
-
-		//	return maxId;
-		//}
 
 		public IQueryable<PageData> GetAll()
 		{
@@ -55,19 +38,42 @@
 				.Element("pages").Add(newItem);
 
 			context.SaveFile();
-			return maxId;
+			return maxId + 1;
 		}
 
 		public void Delete(int id)
 		{
+			var pageToDelete = from page in context.DataXml
+					.Element("data")
+					.Element("pages")
+					.Descendants("page")
+					let attr = page.Attribute("id")
+					where attr != null && attr.Value == id.ToString()
+					select page;
+
+			pageToDelete.First().Remove();
+
 			context.SaveFile();
-			throw new NotImplementedException();
 		}
 
 		public bool Update(PageData item)
 		{
 			bool updateSucceeded = false;
-			context.SaveFile();
+			try
+			{
+				var pageToUpdate = from page in context.DataXml
+						.Element("data")
+						.Element("pages")
+						.Descendants("page")
+								   let attr = page.Attribute("id")
+								   where attr != null && attr.Value == item.Id.ToString()
+								   select page;
+				pageToUpdate.First().Element("content").Value = item.Content;
+				context.SaveFile();
+				updateSucceeded = true;
+			}
+			catch { }
+
 			return updateSucceeded;
 		}
 	}

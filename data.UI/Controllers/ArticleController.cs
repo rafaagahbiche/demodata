@@ -14,13 +14,6 @@ namespace demo.UI.Controllers
 			this.service = service;
 		}
 
-		// GET: Article
-		public ActionResult Index()
-        {
-			var articles = service.GetAll().ToList();
-            return View(articles);
-        }
-
 		public ActionResult Details()
 		{
 			return View("Error");
@@ -72,9 +65,18 @@ namespace demo.UI.Controllers
 		{
 			if (!id.Equals(0) && !id.Equals(-1))
 			{
-				var article = service.Get(id);
+				var article = service.Get(id); 
 				if (article != null)
 				{
+					//article.Pages = service.GetPages(id);
+					//article.FirstPage = service.GetFirstPage(id);
+					article.PagesGlobe = new ArticlePages()
+					{
+						ArticleId = id,
+						FirstPage = service.GetFirstPage(id),
+						Pages = service.GetPages(id)
+					};
+
 					return PartialView("Edit", article);
 				}
 				else
