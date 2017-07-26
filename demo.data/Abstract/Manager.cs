@@ -13,14 +13,14 @@
 			this.context = context;
 		}
 
-		protected int GetMaxId()
+		protected int GetMaxId(string xpath)
 		{
 			int maxId = -1;
 			try
 			{
 				maxId = context
 					.DataXml
-					.XPathSelectElements("//data/pages/page")
+					.XPathSelectElements(xpath)
 					.Max(c => (int)c.Attribute("id"));
 			}
 			catch { }

@@ -59,34 +59,40 @@ namespace demo.UI.Controllers
 			}
 		}
 
-		//[Route("pages/edit/{id}")]
-		[HttpGet]
-		public PartialViewResult EditAction(int id)
+		[HttpPost]
+		public PartialViewResult SaveArticle(ArticleViewModel articleViewModel)
 		{
-			if (!id.Equals(0) && !id.Equals(-1))
+			if (articleViewModel.Id == -1)
 			{
-				var article = service.Get(id); 
-				if (article != null)
-				{
-					//article.Pages = service.GetPages(id);
-					//article.FirstPage = service.GetFirstPage(id);
-					article.PagesGlobe = new ArticlePages()
-					{
-						ArticleId = id,
-						FirstPage = service.GetFirstPage(id),
-						Pages = service.GetPages(id)
-					};
-
-					return PartialView("Edit", article);
-				}
-				else
-				{
-					//Logger.Write("Article is null");
-					return PartialView("Error");
-				}
+				articleViewModel.Id = service.Insert(articleViewModel);
+			}
+			else
+			{
+				service.Update(articleViewModel);
 			}
 
-			return PartialView();
+			return PartialView("Edit", articleViewModel);
+		}
+
+		//[Route("pages/edit/{id}")]
+		[HttpGet]
+		//public PartialViewResult EditAction(int id)
+		public PartialViewResult EditAction(ArticleViewModel article)
+		{
+			//var article = service.Get(id);
+			if (article != null)
+			{
+				article.PagesGlobe = new ArticlePages()
+				{
+					ArticleId = article.Id,
+					FirstPage = service.GetFirstPage(article.Id),
+					Pages = service.GetPages(article.Id)
+				};
+
+				return PartialView("Edit", article);
+			}
+
+			return PartialView("Edit", new ArticleViewModel() { Id = -1, PagesGlobe = new ArticlePages() });
 		}
 
 		[HttpPost, ValidateInput(false)]
@@ -107,7 +113,6 @@ namespace demo.UI.Controllers
 			}
 			catch (Exception ex)
 			{
-				//Logger.Write(ex, Logger.Severity.Major);
 				return View();
 			}
 		}

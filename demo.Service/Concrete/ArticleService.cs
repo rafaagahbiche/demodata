@@ -23,8 +23,14 @@
 
 		public ArticleViewModel Get(int id)
 		{
+			ArticleViewModel article = null;
 			var articleData = articleRepo.GetAll().FirstOrDefault(x => x.Id.Equals(id));
-			return GetArticle(articleData);
+			if(articleData != null)
+			{
+				article = GetArticle(articleData);
+			}
+
+			return article;
 		}
 
 		public IEnumerable<ArticleViewModel> GetAll()

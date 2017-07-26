@@ -1,9 +1,6 @@
 ﻿@using demo.Service
 @model ArticlesGlobe
 
-@section Scripts {
-}
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,7 +13,8 @@
             <div>
                 <span>
                     @Ajax.ActionLink(article.Title, "EditAction", "Article",
-                      new { id = article.Id },
+                      article,
+                      //new { id = article.Id },
                       new AjaxOptions()
                       {
                           HttpMethod = "GET",
@@ -24,9 +22,23 @@
                           InsertionMode = InsertionMode.Replace,
                           OnComplete = "init"
                       })
+                </span>
+            </div>
+        }
+        <div>
+            <span>
+            @Ajax.ActionLink("New", "EditAction", "Article",
+                      new ArticleViewModel() { Id = -1, PagesGlobe = new ArticlePages() },
+                      //new { id = -1 },
+                      new AjaxOptions()
+                      {
+                          HttpMethod = "GET",
+                          UpdateTargetId = "article-details",
+                          InsertionMode = InsertionMode.Replace,
+                          OnComplete = "init"
+                      }) 
             </span>
         </div>
-        }
     </div>
     <div id="article-details">
         @{ Html.RenderPartial("~/Views/Article/Edit.cshtml", Model.First); }

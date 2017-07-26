@@ -48,7 +48,7 @@ namespace demo.UI.Controllers
 		[HttpPost]
 		public PartialViewResult SavePage(PageViewModel pageViewModel)
 		{
-			if (pageViewModel == null || pageViewModel.Id == 0)
+			if (pageViewModel.Id == 0)
 			{
 				return PartialView("EditInfos", 
 					new PageViewModel() {
@@ -60,25 +60,14 @@ namespace demo.UI.Controllers
 			// Old article + New Page
 			if (pageViewModel.Id == -1)
 			{
-				pageViewModel.Id = this.service.Insert(pageViewModel);
-				if (pageViewModel.Id == -1)
-				{
-					return PartialView("EditInfos", 
-						new PageViewModel() {
-							Id = -1,
-							ArticleId = -1
-						});
-				}
-				else
-				{
-					return PartialView("EditInfos", pageViewModel);
-				}
+				pageViewModel.Id = service.Insert(pageViewModel);
 			}
 			else
 			{
-				var updateSucceeded = service.Update(pageViewModel);
-				return PartialView("EditInfos", pageViewModel);
+				service.Update(pageViewModel);
 			}
+
+			return PartialView("EditInfos", pageViewModel);
 		}
 
 		[HttpGet]

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using demo.Service;
 using System.Web.Mvc;
-using demo.Service;
 
 
 namespace demo.UI.Controllers
 {
-    public class ArticleListController : Controller
+	public class ArticleListController : Controller
     {
 		private readonly IArticleService service;
 

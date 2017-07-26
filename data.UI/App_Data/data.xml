@@ -53,5 +53,17 @@
       <content>&amp;lt;p&amp;gt;une autre page&amp;lt;/p&amp;gt;</content>
       <articleId>3</articleId>
     </page>
+    <page id="13">
+      <content>&amp;lt;p&amp;gt;wwww&amp;lt;/p&amp;gt;</content>
+      <articleId>2</articleId>
+    </page>
+    <page id="15">
+      <content>&amp;lt;p&amp;gt;jjjjj&amp;lt;/p&amp;gt;</content>
+      <articleId>3</articleId>
+    </page>
+    <page id="16">
+      <content>&amp;lt;p&amp;gt;fgh wwww&amp;lt;/p&amp;gt;</content>
+      <articleId>1</articleId>
+    </page>
   </pages>
 </data>

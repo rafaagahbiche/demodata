@@ -27,18 +27,18 @@
 
 		public int Insert(PageData item)
 		{
-			var maxId = GetMaxId();
+			var newId = GetMaxId("//data/pages/page") + 1;
 			var newItem = new XElement("page",
 				new XElement("content", item.Content),
 				new XElement("articleId", item.ArticleId));
-			var newId = new XAttribute("id", maxId + 1);
-			newItem.Add(newId);
+			var newIdAttr = new XAttribute("id", newId);
+			newItem.Add(newIdAttr);
 			context.DataXml
 				.Element("data")
 				.Element("pages").Add(newItem);
 
 			context.SaveFile();
-			return maxId + 1;
+			return newId;
 		}
 
 		public void Delete(int id)
@@ -65,9 +65,9 @@
 						.Element("data")
 						.Element("pages")
 						.Descendants("page")
-								   let attr = page.Attribute("id")
-								   where attr != null && attr.Value == item.Id.ToString()
-								   select page;
+							let attr = page.Attribute("id")
+							where attr != null && attr.Value == item.Id.ToString()
+							select page;
 				pageToUpdate.First().Element("content").Value = item.Content;
 				context.SaveFile();
 				updateSucceeded = true;

@@ -36,7 +36,7 @@
 
 		public int Insert(ArticleData item)
 		{
-			var maxId = GetMaxId();
+			var maxId = GetMaxId("//data/articles/article");
 			var newItem = new XElement("article", 
 				new XElement("title", item.Title),
 				new XElement("description", item.Description));

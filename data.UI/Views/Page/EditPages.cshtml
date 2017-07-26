@@ -37,10 +37,7 @@
         }
         else
         {
-            {
-                Html.RenderPartial("~/Views/Page/Edit.cshtml",
-                  new PageViewModel() { Id = -1 });
-            }
+            { Html.RenderPartial("~/Views/Page/Edit.cshtml", new PageViewModel() { Id = -1 }); }
         }
     </div>
 </div>

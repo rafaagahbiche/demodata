@@ -23,8 +23,14 @@ namespace demo.Service
 
 		public PageViewModel Get(int id)
 		{
+			PageViewModel page = null;
 			var pageData = repo.GetAll().FirstOrDefault(x => x.Id.Equals(id));
-			return pageData.GetViewModel();
+			if(pageData != null)
+			{
+				page = pageData.GetViewModel();
+			}
+
+			return page;
 		}
 
 		public IEnumerable<PageViewModel> GetAll()
