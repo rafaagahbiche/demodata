@@ -41,6 +41,17 @@
 			}
 		}
 
+		public ArticleViewModel GetFirstArticle()
+		{
+			var article = articleRepo.GetAll().FirstOrDefault();
+			if (article != null)
+			{
+				return GetArticle(article);
+			}
+
+			return null;
+		}
+
 		public ArticlesGlobe GetGlobe()
 		{
 			return new ArticlesGlobe()
@@ -50,16 +61,18 @@
 			};
 		}
 
-		public int Insert(ArticleViewModel item)
+		public ArticleViewModel Insert(ArticleViewModel item)
 		{
 			var article = item.GetDataModel();
-			return articleRepo.Insert(article).Id;
+			article = articleRepo.Insert(article);
+			return Get(article.Id);
 		}
 
-		public bool Update(ArticleViewModel item)
+		public ArticleViewModel Update(ArticleViewModel item)
 		{
 			var article = item.GetDataModel();
-			return articleRepo.Update(article);
+			articleRepo.Update(article);
+			return Get(article.Id);
 		}
 
 		public IEnumerable<PageViewModel> GetPages(int articleId)
@@ -91,7 +104,8 @@
 		{
 			var article = articleData.GetViewModel();
 			article.PagesGlobe = new ArticlePages();
-			article.PagesGlobe.FirstPage = GetFirstPage(articleData.Id);
+			var firstPage = GetFirstPage(article.Id);
+			article.PagesGlobe.FirstPage = firstPage ?? new PageViewModel() { Id = -1 };
 			article.PagesGlobe.Pages = GetPages(articleData.Id);
 			article.PagesGlobe.ArticleId = articleData.Id;
 			return article;

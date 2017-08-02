@@ -119,12 +119,11 @@
   <ItemGroup>
     <Content Include="App_Data\data.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Scripts\backoffice\createpage-min.js" />
-    <Content Include="Scripts\backoffice\createpage.js" />
     <Content Include="Scripts\backoffice\jquery.article.paginate.js" />
-    <Content Include="Scripts\backoffice\jquery.page-article.delete.js" />
     <Content Include="Scripts\backoffice\jquery.page-article.save.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -500,6 +499,12 @@
     <Content Include="Views\Page\EditPages.cshtml" />
     <Content Include="Views\Page\PageTab.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_jquery_full.cshtml" />
+    <Content Include="Views\Article\ArticleTab.cshtml" />
+    <Content Include="Views\Article\EditInfos.cshtml" />
+    <Content Include="Views\Article\Buttons.cshtml" />
+    <Content Include="Style\font\icomoon.eot" />
+    <Content Include="Style\font\icomoon.ttf" />
+    <Content Include="Style\font\icomoon.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -511,6 +516,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\demo.Helper\demo.Helper.csproj">
+      <Project>{0a41f782-c18e-4034-a6d9-d02efb8d0b29}</Project>
+      <Name>demo.Helper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\demo.Infra\demo.Infra.csproj">
       <Project>{302eb29b-a241-4785-956c-c9fd832bac43}</Project>
       <Name>demo.Infra</Name>

@@ -5,7 +5,6 @@
 	using System.Xml.Linq;
 
 	public class ArticleManager: Manager<ArticleData>, IManager<ArticleData>
-	//Manager<ArticleData>, IArticleManager
 	{
 		public ArticleManager(IDataContext _context) 
 			: base(_context)
@@ -31,28 +30,76 @@
 
 		public void Delete(int id)
 		{
-			context.SaveFile();
+			var articleToDelete = from article in context.DataXml
+					.Element("data")
+					.Element("articles")
+					.Descendants("article")
+							   let attr = article.Attribute("id")
+							   where attr != null && attr.Value == id.ToString()
+							   select article;
+
+			if(articleToDelete != null)
+			{
+				articleToDelete.First().Remove();
+				context.SaveFile();
+			}
 		}
 
 		public int Insert(ArticleData item)
 		{
-			var maxId = GetMaxId("//data/articles/article");
+			var newId = GetMaxId("//data/articles/article") + 1;
 			var newItem = new XElement("article", 
 				new XElement("title", item.Title),
 				new XElement("description", item.Description));
-			var newId = new XAttribute("id", maxId + 1);
-			newItem.Add(newId);
+			var newIdAttr = new XAttribute("id", newId);
+			newItem.Add(newIdAttr);
 			context.DataXml
 				.Element("data")
 				.Element("articles").Add(newItem);
 			context.SaveFile();
-			return maxId;
+			return newId;
 		}
 
 		public bool Update(ArticleData item)
 		{
 			bool updateSucceeded = false;
-			context.SaveFile();
+			try
+			{
+				var articleToUpdate = from page in context.DataXml
+						.Element("data")
+						.Element("articles")
+						.Descendants("article")
+								   let attr = page.Attribute("id")
+								   where attr != null && attr.Value == item.Id.ToString()
+								   select page;
+				if(articleToUpdate != null && articleToUpdate.First() != null)
+				{
+					var articleElement = articleToUpdate.First();
+					if (!string.IsNullOrEmpty(item.Title))
+					{
+						articleElement.Element("title").Value = item.Title;
+					}
+
+					if (!string.IsNullOrEmpty(item.Description))
+					{
+						if(articleElement.Element("description") != null)
+						{
+							articleElement.Element("description").Value = item.Description;
+						}
+						else
+						{
+							var descElt = new XElement("description");
+							descElt.Value = item.Description;
+							articleElement.Add(descElt);
+						}
+					}
+				}
+
+				context.SaveFile();
+				updateSucceeded = true;
+			}
+			catch { }
+
 			return updateSucceeded;
 		}
 	}

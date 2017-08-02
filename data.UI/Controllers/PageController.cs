@@ -13,12 +13,6 @@ namespace demo.UI.Controllers
 			this.service = service;
 		}
 
-		// GET: Page
-		public ActionResult Index()
-        {
-            return View();
-        }
-
 		[HttpGet]
 		public PartialViewResult ShowPageContent(int pageId, int articleId)
 		{
@@ -46,7 +40,7 @@ namespace demo.UI.Controllers
 		}
 
 		[HttpPost]
-		public PartialViewResult SavePage(PageViewModel pageViewModel)
+		public PartialViewResult Save(PageViewModel pageViewModel)
 		{
 			if (pageViewModel.Id == 0)
 			{
@@ -71,7 +65,7 @@ namespace demo.UI.Controllers
 		}
 
 		[HttpGet]
-		public PartialViewResult DeletePage(int pageId, int articleId)
+		public PartialViewResult Delete(int pageId, int articleId)
 		{
 			if (pageId > 0)
 			{

@@ -12,7 +12,7 @@
     <div class="edit-del-butt">
         <div class="edit-del-ok">
             @Ajax.ActionLink("Delete",
-                         "DeletePage",
+                         "Delete", "Page",
                 new { pageId = Model.Id, articleId = Model.ArticleId },
                 new AjaxOptions
                 {

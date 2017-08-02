@@ -1,0 +1,21 @@
+﻿@using demo.Service
+@model ArticleViewModel
+
+@Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
+<input type="hidden" id="Id" name="Id" value=@Model.Id />
+<div class="form-group">
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })
+        @Html.ValidationMessageFor(model => model.Title, string.Empty, new { @class = "text-danger" })
+    </div>
+</div>
+<br />
+<div class="form-group">
+    <div class="col-md-10">
+        @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { placeholder = "Description" } })
+    </div>
+</div>
+@if (Model.PagesGlobe != null)
+{
+    { Html.RenderPartial("~/Views/Page/EditPages.cshtml", Model.PagesGlobe); }
+}

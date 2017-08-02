@@ -51,9 +51,11 @@
 					where attr != null && attr.Value == id.ToString()
 					select page;
 
-			pageToDelete.First().Remove();
-
-			context.SaveFile();
+			if(pageToDelete != null)
+			{
+				pageToDelete.First().Remove();
+				context.SaveFile();
+			}
 		}
 
 		public bool Update(PageData item)

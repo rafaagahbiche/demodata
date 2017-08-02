@@ -5,7 +5,7 @@
 <div class="form-group edit-pages">
     <div class="pages-tabs">
         <ul class="tab-links" id="tabs">
-            @if (Model != null && Model.Pages != null)
+            @if (Model != null && Model.FirstPage != null && Model.Pages.Count() > 0)
             {
                 int tabCount = 0;
                 foreach (var page in Model.Pages)
@@ -25,7 +25,8 @@
                     });
                 }
             }
-            <li class="plus">
+            @{ var plusclass = Model.FirstPage != null && @Model.FirstPage.Id != -1 ? "plus" : "plus disabled"; }
+            <li class= "@plusclass">
                 <a id="tabplus" href="#">&#x2B;</a>
             </li>
         </ul>

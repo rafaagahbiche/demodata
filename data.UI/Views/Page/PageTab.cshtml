@@ -6,12 +6,12 @@
                       ? "tab active" : "tab";}
 <li class="@tabClass">
     @Ajax.ActionLink(ViewData["count"] != null ? ((int)ViewData["count"] + 1).ToString() : "New",
-        "ShowPageContent", "Page", new { pageId = Model.Id, articleId = Model.ArticleId },
+        "ShowPageContent", "Page", 
+        new { pageId = Model.Id, articleId = Model.ArticleId },
         new AjaxOptions
         {
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
-            LoadingElementId = "ajaxloadingdata",
             UpdateTargetId = "tobeupdated",
             OnBegin = "selectFocusTab",
             OnSuccess = "initEventsForSelectedTab"

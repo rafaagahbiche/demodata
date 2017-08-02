@@ -1,0 +1,18 @@
+﻿@using demo.Service
+@using demo.Helper
+
+@model ArticleViewModel
+
+@{var tabClass = Model.Id == -1 ? "article-link active" : "article-link";}
+<div class="@tabClass">
+    @Ajax.RawActionLink(string.Format(@"<div>{0}</div>", !string.IsNullOrEmpty(Model.Title) ? Model.Title : "New"), "ShowArticleContent", "Article",
+        new { articleId = Model.Id},
+        new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "article",
+            InsertionMode = InsertionMode.Replace,
+            OnBegin = "selectActiveArticle",
+            OnComplete = "initPageFunctions"
+        }, null)
+</div>

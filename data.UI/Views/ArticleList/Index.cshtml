@@ -1,4 +1,5 @@
 ﻿@using demo.Service
+
 @model ArticlesGlobe
 
 @{
@@ -7,40 +8,27 @@
 }
 
 <div>
-    <div id="articles-list">
+    <div id="article-list">
         @foreach (var article in Model.Articles)
         {
-            <div>
-                <span>
-                    @Ajax.ActionLink(article.Title, "EditAction", "Article",
-                      article,
-                      //new { id = article.Id },
-                      new AjaxOptions()
-                      {
-                          HttpMethod = "GET",
-                          UpdateTargetId = "article-details",
-                          InsertionMode = InsertionMode.Replace,
-                          OnComplete = "init"
-                      })
-                </span>
-            </div>
+            { Html.RenderPartial("~/Views/Article/ArticleTab.cshtml", article); }
         }
-        <div>
-            <span>
-            @Ajax.ActionLink("New", "EditAction", "Article",
-                      new ArticleViewModel() { Id = -1, PagesGlobe = new ArticlePages() },
-                      //new { id = -1 },
-                      new AjaxOptions()
-                      {
-                          HttpMethod = "GET",
-                          UpdateTargetId = "article-details",
-                          InsertionMode = InsertionMode.Replace,
-                          OnComplete = "init"
-                      }) 
-            </span>
+
+        <div class="article-link plus">
+            <a id="add-article-tab" href="#"><div>&#x2B;</div></a>
         </div>
     </div>
     <div id="article-details">
-        @{ Html.RenderPartial("~/Views/Article/Edit.cshtml", Model.First); }
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @{ Html.RenderPartial("~/Views/Article/Buttons.cshtml"); }
+                <div id="article">
+                    @{ Html.RenderPartial("~/Views/Article/EditInfos.cshtml", Model.First); }
+                </div>
+            </div>      
+        }
     </div>
 </div>

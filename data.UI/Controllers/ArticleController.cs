@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using demo.Service;
+﻿
 
 namespace demo.UI.Controllers
 {
+	using System.Web.Mvc;
+	using demo.Service;
+
 	public class ArticleController : Controller
     {
 		private readonly IArticleService service;
@@ -14,107 +14,61 @@ namespace demo.UI.Controllers
 			this.service = service;
 		}
 
-		public ActionResult Details()
+		[HttpPost]
+		public PartialViewResult Delete(int id)
 		{
-			return View("Error");
-		}
-
-		//[Route("pages/{title}-{id}")]
-		public ActionResult Details(int id)
-		{
-			try
+			var articleViewModel = new ArticleViewModel()
 			{
-				var article = this.service.Get(id);
-				if (article != null)
-				{
-					return View(article);
-				}
+				Id = -1,
+				PagesGlobe = new ArticlePages()
+			};
 
-				return View();
-			}
-			catch (Exception ex)
+			if (id != -1)
 			{
-				//Kaliko.Logger.Write(ex, Logger.Severity.Critical);
+				service.Delete(id);
 			}
 
-			return View();
-		}
-
-		[HttpPost, ValidateInput(false)]
-		public ActionResult Create(ArticleViewModel articleViewModel)
-		{
-			try
+			var firstArticle = service.GetFirstArticle();
+			if (firstArticle != null)
 			{
-				if (articleViewModel != null)
-				{
-					articleViewModel.Id = this.service.Insert(articleViewModel);
-					return RedirectToAction("Edit", new { id = articleViewModel.Id });
-				}
+				return PartialView("EditInfos", firstArticle);
+			}
 
-				return View("Create");
-			}
-			catch
-			{
-				return View();
-			}
+			return PartialView("EditInfos", articleViewModel);
 		}
 
 		[HttpPost]
-		public PartialViewResult SaveArticle(ArticleViewModel articleViewModel)
+		public PartialViewResult Save(ArticleViewModel articleViewModel)
 		{
 			if (articleViewModel.Id == -1)
 			{
-				articleViewModel.Id = service.Insert(articleViewModel);
+				articleViewModel = service.Insert(articleViewModel);
 			}
 			else
 			{
-				service.Update(articleViewModel);
+				articleViewModel = service.Update(articleViewModel);
 			}
 
-			return PartialView("Edit", articleViewModel);
+			// TODO handle case when article is null after update/insert
+
+			return PartialView("EditInfos", articleViewModel);
 		}
 
-		//[Route("pages/edit/{id}")]
 		[HttpGet]
-		//public PartialViewResult EditAction(int id)
-		public PartialViewResult EditAction(ArticleViewModel article)
+		public PartialViewResult ShowArticleContent(int articleId)
 		{
-			//var article = service.Get(id);
-			if (article != null)
-			{
-				article.PagesGlobe = new ArticlePages()
-				{
-					ArticleId = article.Id,
-					FirstPage = service.GetFirstPage(article.Id),
-					Pages = service.GetPages(article.Id)
-				};
-
-				return PartialView("Edit", article);
-			}
-
-			return PartialView("Edit", new ArticleViewModel() { Id = -1, PagesGlobe = new ArticlePages() });
+			var article = service.Get(articleId);
+			return PartialView("EditInfos", article ?? new ArticleViewModel() { Id = -1 });
 		}
 
-		[HttpPost, ValidateInput(false)]
-		[Route("pages/edit/{id}")]
-		public ActionResult Edit(ArticleViewModel articleViewModel)
+		[HttpGet]
+		public PartialViewResult AddNewTab()
 		{
-			try
-			{
-				bool succeeded = service.Update(articleViewModel);
-				if (succeeded)
+			return PartialView("ArticleTab",
+				new ArticleViewModel()
 				{
-					return View(articleViewModel);
-				}
-				else
-				{
-					return View("Error");
-				}
-			}
-			catch (Exception ex)
-			{
-				return View();
-			}
+					Id = -1
+				});
 		}
 	}
 }

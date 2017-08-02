@@ -3,7 +3,6 @@
 @model PageViewModel
 
 @Html.EditorFor(m => m.DecodedContent, new { name = "DecodedContent", @class = "content-edit" })
-<input type="hidden" id="editPageId" value="@Model.Id" />
-@Html.HiddenFor(m => m.Id)
 
+<input type="hidden" id="Id" name="Id" value=@Model.Id />
 

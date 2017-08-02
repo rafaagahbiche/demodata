@@ -24,16 +24,6 @@ namespace demo.Service
 				articleViewModel.Id = article.Id;
 				articleViewModel.Title = article.Title;
 				articleViewModel.Description = article.Description;
-				//if (loadPages)
-				//{
-				//	articleViewModel.ArticlePages = new List<PageViewModel>();
-				//	articleViewModel.PagesIds = new List<int>();
-				//	foreach (var articlePage in article.ArticlePages)
-				//	{
-				//		articleViewModel.ArticlePages.Add(articlePage.GetViewModel());
-				//		articleViewModel.PagesIds.Add(articlePage.Id);
-				//	}
-				//}
 			}
 
 			return articleViewModel;

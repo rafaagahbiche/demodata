@@ -6,11 +6,12 @@ namespace demo.Service
 	{
 		IEnumerable<ArticleViewModel> GetAll();
 		ArticleViewModel Get(int id);
-		int Insert(ArticleViewModel item);
+		ArticleViewModel Insert(ArticleViewModel item);
 		void Delete(int Id);
-		bool Update(ArticleViewModel item);
+		ArticleViewModel Update(ArticleViewModel item);
 		ArticlesGlobe GetGlobe();
 		IEnumerable<PageViewModel> GetPages(int articleId);
 		PageViewModel GetFirstPage(int articleId);
+		ArticleViewModel GetFirstArticle();
 	}
 }

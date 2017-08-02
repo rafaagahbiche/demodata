@@ -8,6 +8,8 @@ namespace demo.Service
 
 		public PageViewModel FirstPage { get; set; }
 
+		public int Count { get; set; }
+
 		public int ArticleId { get; set; }
 	}
 }

@@ -2,39 +2,48 @@
 <data>
   <articles>
     <article id="1">
-      <title>premier</title>
-      <description></description>
+      <title>Kyrie Irving</title>
+      <description>Kyrie Irving is suddenly the biggest domino on the market</description>
       <pages>
         <page id="1"></page>
       </pages>
     </article>
     <article id="2">
-      <title>deux</title>
+      <title>#DriveBy</title>
+      <description>Watch Derrick Jones Jr. #DriveByDunk Over a Human
+Don’t worry; no one was injured, but feelings were hurt</description>
     </article>
     <article id="3">
-      <title>trois</title>
+      <title>Resp</title>
+      <description>Real description for resp</description>
+    </article>
+    <article id="5">
+      <title>TODO</title>
+      <description>Still to do in this project</description>
+    </article>
+    <article id="6">
+      <title>WWW</title>
+      <description />
     </article>
   </articles>
   <pages>
     <page id="1">
-      <content>asdfdsdfsdaf</content>
+      <content>&amp;lt;h3 name="d68f" id="d68f" class="graf graf--h3 graf-after--p"&amp;gt;&amp;lt;span class="markup--strong markup--h3-strong"&amp;gt;New Management&amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;
+&amp;lt;p name="7317" id="7317" class="graf graf--p graf-after--h3"&amp;gt;&amp;lt;em class="markup--em markup--p-em"&amp;gt;Were you hired by a general manager who just got fired? Does the franchise keep bringing up &amp;amp;ldquo;organizational change&amp;amp;rdquo; in press conferences? Did the last president of basketball operations love you, but now you&amp;amp;rsquo;re dealing with Steve Mills? Call the hotline now! There is no obligation.&amp;amp;nbsp;&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;</content>
       <articleId>2</articleId>
     </page>
     <page id="2">
-      <content>&amp;lt;p&amp;gt;sdfsadfsdfsd&amp;amp;nbsp;&amp;lt;/p&amp;gt;
-&amp;lt;p&amp;gt;nouveau contenu&amp;amp;iexcl;&amp;amp;iexcl;&amp;amp;iexcl;&amp;lt;/p&amp;gt;</content>
+      <content>&amp;lt;h3&amp;gt;Defining Your Scheduled Task in Sitecore&amp;lt;/h3&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;span&amp;gt;If you have ever needed to upgrade or install Sitecore, then you will know a lot of your website's configuration settings are done in .config files, either in the web.config, or, the 'App_Config' directory. Creating your own custom scheduling agent is very similar.&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;</content>
       <articleId>2</articleId>
     </page>
     <page id="3">
-      <content>dsafdsafdsa</content>
+      <content>&amp;lt;h4 id="e257" class="graf graf--h4 graf-after--p"&amp;gt;&amp;lt;span class="markup--strong markup--h4-strong"&amp;gt;Jeff Hornacek&amp;lt;/span&amp;gt;&amp;lt;/h4&amp;gt;
+&amp;lt;p id="4e83" class="graf graf--p graf-after--h4"&amp;gt;&amp;lt;span class="markup--strong markup--p-strong"&amp;gt;O&amp;amp;rsquo;Shaughnessy:&amp;amp;nbsp;&amp;lt;/span&amp;gt;Before Hornacek&amp;amp;rsquo;s first season as head coach of the Knicks could even finish,&amp;amp;nbsp;&amp;lt;a class="markup--anchor markup--p-anchor" href="http://www.nj.com/knicks/index.ssf/2017/02/jeff_hornacek_on_hot_seat_vegas_odds_suggest_knick.html" rel="noopener" target="_blank" data-href="http://www.nj.com/knicks/index.ssf/2017/02/jeff_hornacek_on_hot_seat_vegas_odds_suggest_knick.html"&amp;gt;Vegas&amp;lt;/a&amp;gt;&amp;amp;nbsp;had him as the third most likely to be fired&amp;amp;nbsp;&amp;lt;em class="markup--em markup--p-em"&amp;gt;in that same season&amp;lt;/em&amp;gt;. The odds were loaded, of course, by the unpredictability of Phil Jackson. But unlike Hornacek, Phil did not survive the year.&amp;lt;/p&amp;gt;</content>
       <articleId>1</articleId>
     </page>
-    <page id="4">
-      <content>dsafdsafdsa</content>
-      <articleId>3</articleId>
-    </page>
     <page id="5">
-      <content>&amp;lt;p&amp;gt;zdfsf sdfasdf dsfsd&amp;lt;/p&amp;gt;</content>
+      <content>&amp;lt;p&amp;gt;New content&amp;lt;/p&amp;gt;</content>
       <articleId>1</articleId>
     </page>
     <page id="6">
@@ -54,16 +63,29 @@
       <articleId>3</articleId>
     </page>
     <page id="13">
-      <content>&amp;lt;p&amp;gt;wwww&amp;lt;/p&amp;gt;</content>
+      <content>&amp;lt;p&amp;gt;wwww hgjh&amp;lt;/p&amp;gt;</content>
       <articleId>2</articleId>
     </page>
-    <page id="15">
-      <content>&amp;lt;p&amp;gt;jjjjj&amp;lt;/p&amp;gt;</content>
+    <page id="16">
+      <content>&amp;lt;p&amp;gt;sdfasdf sdf&amp;lt;/p&amp;gt;</content>
+      <articleId>2</articleId>
+    </page>
+    <page id="19">
+      <content>&amp;lt;p&amp;gt;Required fields: article title and pahge content&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Cannot add new page if the article has no pages&amp;amp;nbsp;&amp;lt;/p&amp;gt;</content>
+      <articleId>5</articleId>
+    </page>
+    <page id="20">
+      <content>&amp;lt;p&amp;gt;Nouvelle&amp;lt;/p&amp;gt;</content>
       <articleId>3</articleId>
     </page>
-    <page id="16">
-      <content>&amp;lt;p&amp;gt;fgh wwww&amp;lt;/p&amp;gt;</content>
-      <articleId>1</articleId>
+    <page id="21">
+      <content>&amp;lt;p&amp;gt;zsxc&amp;amp;lt;zx&amp;lt;/p&amp;gt;</content>
+      <articleId>2</articleId>
+    </page>
+    <page id="23">
+      <content>&amp;lt;p&amp;gt;zxc zx cv&amp;lt;/p&amp;gt;</content>
+      <articleId>6</articleId>
     </page>
   </pages>
 </data>
