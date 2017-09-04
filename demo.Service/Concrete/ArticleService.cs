@@ -57,7 +57,7 @@
 			return new ArticlesGlobe()
 			{
 				Articles = GetAll(),
-				First = GetArticle(articleRepo.GetAll().FirstOrDefault())
+                First = GetArticle(articleRepo.GetAll().FirstOrDefault()) ?? new ArticleViewModel() { Id = -1}
 			};
 		}
 
@@ -102,13 +102,18 @@
 
 		private ArticleViewModel GetArticle(ArticleData articleData)
 		{
-			var article = articleData.GetViewModel();
-			article.PagesGlobe = new ArticlePages();
-			var firstPage = GetFirstPage(article.Id);
-			article.PagesGlobe.FirstPage = firstPage ?? new PageViewModel() { Id = -1 };
-			article.PagesGlobe.Pages = GetPages(articleData.Id);
-			article.PagesGlobe.ArticleId = articleData.Id;
-			return article;
-		}
+            ArticleViewModel article = null;
+            if (articleData != null)
+            {
+                article = articleData.GetViewModel();
+                article.PagesGlobe = new ArticlePages();
+                var firstPage = GetFirstPage(article.Id);
+                article.PagesGlobe.FirstPage = firstPage ?? new PageViewModel() { Id = -1 };
+                article.PagesGlobe.Pages = GetPages(articleData.Id);
+                article.PagesGlobe.ArticleId = articleData.Id;
+            }
+        
+            return article;
+        }
 	}
 }

@@ -96,6 +96,7 @@ function callSaveArticle(url, articleViewModel) {
                 var newArticleId = $('div#article').children('input[type="hidden"]#Id').val();
                 AssignTabToArticle(oldArticleId, newArticleId);
                 disableTabArticleLinks(false);
+                initEventsForSelectedTab();
             }
         },
         error: function (err) {

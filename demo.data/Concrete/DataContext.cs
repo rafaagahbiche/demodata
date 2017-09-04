@@ -11,8 +11,8 @@
 
 		public DataContext(string path)
 		{
-			this.path = path;
-		}
+            this.path = HttpContext.Current.Request.MapPath(path);
+        }
 
 		public void SaveFile()
 		{
@@ -26,9 +26,8 @@
 			{
 				if (_dataXml == null)
 				{
-					var newSession = HttpContext.Current.Session.IsNewSession;
-					var path1 = HttpContext.Current.Request.MapPath(path);
-					_dataXml = XDocument.Load(path1);
+                    //var newSession = HttpContext.Current.Session.IsNewSession;
+					_dataXml = XDocument.Load(path);
 				}
 
 				return _dataXml;
