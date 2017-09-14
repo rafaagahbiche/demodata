@@ -68,7 +68,7 @@ div.main {
     -moz-box-sizing: border-box;
 }
 
-.main > div {
+div.main > div {
     margin:0 auto;
     width:90%;
     position:relative;
@@ -114,33 +114,10 @@ div.main > div > div#article-list > div.disabled {
     color:#888;
 }
 
-
-
 div.main > div > div#article-details {
     width: 85%;
     float: left;
     margin: 0 25%;
-}
-
-.manager-page-title {
-	margin-top:2em;
-}
-
-.manager-page-title h2 {
-    font-family: 'Playfair Display', serif;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 2.6em;
-}
-
-.manager-page-title h3 {
-    font-family: 'Playfair Display', serif;
-}
-
-.manager-page-title > p {
-    font-family: 'Cabin', Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    line-height: 25px;
 }
 
 div.main div.form-horizontal {
@@ -181,7 +158,6 @@ div.article-buttons > div.delete > a > div {
 }
 
 div#article {
-    /*display: inline-block;*/
     margin-top: 10%;
 }
 
@@ -302,7 +278,6 @@ div.article-page > div.page-preview > div.tools > div.edit:hover {
 
 div.article-page > div.page-preview > div.tools > div.delete {
     background: url(img/close_delete.png) no-repeat;
-    /*background-size: 100% 100%;*/
     margin:2px;
     width: 25%;
     height: 17px;
@@ -440,8 +415,6 @@ ul.tab-links > li.disabled > a {
     display:inline-block;
 }
  
-    /*----- Tab Links -----*/
-    /* Clearfix */
     .tab-links:after {
         display:block;
         clear:both;
@@ -478,6 +451,12 @@ li.active a, li.active a:hover {
     background:#5c98b4;
 }
 
+div.edit-pages {
+    float:left;
+    width: 100%;
+    margin-top: 2%;
+}
+
 div.edit-pages > div label {
     font-weight: bold;
 }
@@ -486,134 +465,6 @@ div.edit-pages > div.col-md-10 {
     width: 595px;
     float: left;
 }
-
-.img_lbl_div_class {
-    padding: 11.5px 0 11.5px 0;
-    width:100%;
-    background-color:White;
-    opacity: .3;
-    position:absolute; 
-    top:80%;  
-}
-
-.image_label_class {
-    text-transform:uppercase;
-    font-size:30px;
-    color:Black;
-}
-
-.cutomize_content_class {
-    min-height:410px;
-    margin-top:25px;
-    position:relative;
-}
-
-.images_uploaded {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
-    background-color:#EBEBEB;
-    width:160px;
-    min-height:100px;
-}
-
-.multi_line_text {
-    overflow:auto;
-    resize:none;
-}
-
-article {
-    font-family:DublienPlain;
-    text-align:center;
-    float:left;
-    width:100%;
-}
-
-article > header {
-    margin:auto;
-    text-align:left;
-    width:90%;
-}
-
-article > header > div h1 {
-    font-family: 'Playfair Display', serif;
-    text-transform: uppercase;
-}
-
-article > header > div h2 {
-    font-family: 'Playfair Display', serif;
-}
-
-article > div {
-    margin:auto;
-    text-align:left;
-    overflow:hidden;
-    width:90%;
-}
-
-article > label {
-    font-size: 3em;
-    text-transform: uppercase;
-}
-
-article > p {
-    font-size: 1.5em;
-    line-height:1.3em;
-}
-
-div.list-container {
-    position: absolute;
-    width: 755px;
-    height: 440px;
-    border: 1px solid black;
-}
-
-.list {
-    height: 400px;
-    margin:auto;
-    position: relative;
-    overflow-x: hidden;
-}
-     
-ul#pagination {
-    display: inline-block;
-    position: absolute;
-    text-align: center;
-    list-style-type: none;
-    padding:0px;
-    margin:0px;
-}
-
-ul#pagination > li {
-    float: left;
-    display:inline;
-    text-align:left;
-    font-size:1.2em;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
-
-section.article-page {
-    padding-left: 3%;
-    padding-right: 3%;
-}
-
-div.buttons {
-		width: 50px;
-		margin-top: 15px;
-		clear:both;
-	}	
-
-	div.buttons> input {
-		padding: 5px;
-	}
-
-    div.edit-pages {
-        float:left;
-        width: 100%;
-        margin-top: 2%;
-    }
 
 /*Phone*/
 @media screen and (max-device-width: 480px) {
