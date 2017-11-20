@@ -6,6 +6,7 @@ namespace demo.Service
 	{
 		IEnumerable<ArticleViewModel> GetAll();
 		ArticleViewModel Get(int id);
+		ArticleViewModel Get(string title);
 		ArticleViewModel Insert(ArticleViewModel item);
 		void Delete(int Id);
 		ArticleViewModel Update(ArticleViewModel item);

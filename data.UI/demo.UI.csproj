@@ -154,7 +154,19 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="Scripts\backoffice\createpage-min.js" />
+    <Content Include="images\earth-globe.png" />
+    <Content Include="images\earth128.png" />
+    <Content Include="images\earth64.png" />
+    <Content Include="images\ebook.png" />
+    <Content Include="images\ebook64.png" />
+    <Content Include="images\edit2.png" />
+    <Content Include="images\edit64.png" />
+    <Content Include="images\rolling.gif" />
+    <Content Include="Scripts\backoffice\manager.article.js" />
+    <Content Include="Scripts\backoffice\init.js" />
+    <Content Include="Scripts\backoffice\jquery.article.paginate.js" />
+    <Content Include="Scripts\backoffice\jquery.loading.js" />
+    <Content Include="Scripts\backoffice\manager.page.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Properties\PublishProfiles\articlesmanager.pubxml" />
@@ -163,6 +175,7 @@
     <Content Include="Scripts\jquery-1.4.4.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.paginate.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\tinymce\jquery.tinymce.js" />
@@ -419,6 +432,7 @@
     <Content Include="Scripts\tinymce\utils\form_utils.js" />
     <Content Include="Scripts\tinymce\utils\mctabs.js" />
     <Content Include="Scripts\tinymce\utils\validate.js" />
+    <Content Include="Style\img.css" />
     <Content Include="Style\site.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -441,7 +455,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\Menu.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Article\Edit.cshtml" />
     <Content Include="Views\Page\Edit.cshtml" />
@@ -457,6 +470,8 @@
     <Content Include="Style\font\icomoon.eot" />
     <Content Include="Style\font\icomoon.ttf" />
     <Content Include="Style\font\icomoon.woff" />
+    <Content Include="Views\Article\Display.cshtml" />
+    <Content Include="Views\Page\Display.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -507,11 +522,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64128</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64128/</IISUrl>
+          <IISUrl>http://localhost:4356/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -3,17 +3,18 @@
 @model ArticlesGlobe
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Article Editor";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Logo = "../images/edit64.png";
+    ViewBag.Header = "Article Editor";
 }
-
-<div>
-    <div id="article-list">
+<div id="article-list">
         @if (Model.First.Id == -1)
         {
             { Html.RenderPartial("~/Views/Article/ArticleTab.cshtml", Model.First); }
         }
-        else { 
+        else
+        {
             foreach (var article in Model.Articles)
             {
                 { Html.RenderPartial("~/Views/Article/ArticleTab.cshtml", article); }
@@ -22,18 +23,12 @@
         <div class="article-link plus">
             <a id="add-article-tab" href="#"><div>&#x2B;</div></a>
         </div>
-    </div>
-    <div id="article-details">
-
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            <div class="form-horizontal">
-                @{ Html.RenderPartial("~/Views/Article/Buttons.cshtml"); }
-                <div id="article">
-                    @{ Html.RenderPartial("~/Views/Article/EditInfos.cshtml", Model.First); }
-                </div>
-            </div>      
-        }
+</div>
+<div id="article-details">
+    @{ Html.RenderPartial("~/Views/Article/Edit.cshtml", Model.First); }
+</div>
+<div class="loading-article" id="loadingArticle">
+    <div>
+        <span>Loading Article</span>
     </div>
 </div>

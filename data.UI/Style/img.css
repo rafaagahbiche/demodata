@@ -1,0 +1,177 @@
+﻿.pager-container {
+    display: inline-block;
+}
+
+#pager{
+    float: right;
+}
+
+#pager > ul{
+    list-style: none;
+    padding-left: 0;
+    margin:0;
+}
+#pager > ul > li:hover {
+    background-color:white;
+    border: 1px solid #008ac9;
+}
+
+#pager > ul > li:hover > span {
+    color: #008ac9;
+}
+
+#pager > ul > li.nav-numbers {
+    background-color:transparent;
+    border: 0;
+    font-size: 1.5em;
+    display:table;
+}
+
+#pager > ul > li.nav-numbers:hover {
+    background-color:transparent;
+    border: 0;
+    cursor: default;
+}
+
+#pager > ul > li.nav-numbers > span {
+    color:#008ac9;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+#pager > ul > li {
+    cursor: pointer;float:left; 
+    margin-right: 0.1em;
+    width:1.5em;
+    background-color:#008ac9;
+    border: 1px solid white;
+    text-align:center;
+}
+
+#pager > ul span{
+    color:white; 
+    font-weight: bold;
+    font-size:2em; 
+    line-height: 0.6em;
+}
+
+.img-list-container {
+    position: absolute;
+    width: 65%;
+    border: 1px solid #DEDCDC;
+}
+
+.img-list {
+    margin:auto;
+    position: relative;
+    overflow-x: hidden;
+    margin-bottom: 4em;
+}
+     
+.img-display {
+    position:relative;
+    float:left;
+    font-family:Calibri;
+    font-weight: bold;
+	border:1px solid transparent;
+}
+
+article {
+    font-family:DublienPlain;
+    text-align:center;
+    float:left;
+    width:100%;
+}
+
+article > header {
+    margin:auto;
+    text-align:left;
+    width:90%;
+}
+
+article > header > div h1 {
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+}
+
+article > header > div h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+article > div {
+    margin:auto;
+    text-align:left;
+    overflow:hidden;
+    width:90%;
+}
+
+article > label {
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+article > p {
+    font-size: 1.5em;
+    line-height:1.3em;
+}
+
+div.list-container {
+    position: absolute;
+    width: 755px;
+    height: 440px;
+    border: 1px solid black;
+}
+
+.list {
+    height: 400px;
+    margin:auto;
+    position: relative;
+    overflow-x: hidden;
+}
+     
+ul#pagination {
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    list-style-type: none;
+    padding:0px;
+    margin:0px;
+}
+
+ul#pagination > li {
+    float: left;
+    display:inline;
+    text-align:left;
+    font-size:1.2em;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+section.article-page {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+div.buttons {
+		width: 50px;
+		margin-top: 15px;
+		clear:both;
+	}	
+
+	div.buttons> input {
+		padding: 5px;
+	}
+
+    div.edit-pages {
+        float:left;
+        width: 100%;
+        margin-top: 2%;
+    }
+
+/*Phone*/
+@media screen and (max-device-width: 480px) {
+    .img-list-container {
+        width: 100%;
+    }
+}

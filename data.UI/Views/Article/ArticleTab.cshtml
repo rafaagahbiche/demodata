@@ -10,9 +10,10 @@
         new AjaxOptions()
         {
             HttpMethod = "GET",
-            UpdateTargetId = "article",
+            UpdateTargetId = "article-details",
             InsertionMode = InsertionMode.Replace,
+            LoadingElementId = "loadingArticle",
             OnBegin = "selectActiveArticle",
-            OnComplete = "initPageFunctions"
+            OnComplete = "initButtonFunctions"
         }, null)
 </div>

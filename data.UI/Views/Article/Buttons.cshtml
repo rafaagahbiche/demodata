@@ -1,8 +1,14 @@
-﻿<div class="form-group article-buttons">
+﻿@using demo.Helper;
+@model demo.Service.ArticleViewModel
+
+<div class="form-group article-buttons">
     <div class="delete">
         <a class="delete-article" href="@Url.Action("Delete", "Article")"><div>Delete</div></a>
     </div>
     <div class="save">
         <a class="save-article" href="@Url.Action("Save", "Article")"><div>Save</div></a>
+    </div>
+    <div class="view">
+        @Html.HtmlActionLink("<div>Preview</div>", "Display", "Article", new { title = Model.Title }, new { @class = "view-article", target = "_blank" })
     </div>
 </div>

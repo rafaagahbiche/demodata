@@ -1,0 +1,66 @@
+﻿@model demo.Service.ArticleViewModel
+
+
+@{
+    ViewBag.Title = "Article Viewer";
+    ViewBag.Logo = "../images/ebook64.png";
+    ViewBag.Header = "Article Viewer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<article>
+    <header class="manager-page-title">
+        <div>
+            <h2><span>@Model.Title</span></h2>
+        </div>
+        <div><p><h3>@Model.Description</h3></p></div>
+    </header>
+    <div>
+        @if (Model.PagesGlobe != null)
+        {
+            <div class="pager-container">
+                <div id="pager">
+                    <ul>
+                        <li class="nav-prev"><span>&lsaquo;</span></li>
+                        <li class="nav-numbers"><span>1</span><span>&#x2F;</span><span>@Model.PagesGlobe.Count</span></li>
+                        <li class="nav-next"><span>&rsaquo;</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="img-list-container">
+                <div class="img-list">
+                    <ul id="pagination">
+                        <li>
+                            @{ int i = 0; }
+                            @foreach (var page in Model.PagesGlobe.Pages)
+                            {
+                                if (i % 1 == 0 && i != 0)
+                                {
+                                    @:</li><li>
+                                }
+                                @Html.Partial("~/Views/Page/Display.cshtml", page.Content)
+                                i++;
+                            }
+                        </li>
+                    </ul>      
+                </div>
+            </div>              }
+    </div>
+</article>
+
+@section Scripts {
+    <script type="text/javascript">
+    $(function () {
+        var myObj = $('ul#pagination').paginatearticle({
+            nextSelector: 'li.nav-next',
+            prevSelector: 'li.nav-prev',
+            pagerSelector: 'li.nav-numbers',
+            itemslistSelector: 'div.img-list',
+            listcontainerSelector: 'div.img-list-container',
+            pagercontainerSelector: '.pager-container',
+            currentpage: 1
+        });
+    });
+    </script>
+}
+

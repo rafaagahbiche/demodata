@@ -1,15 +1,10 @@
 ﻿@using demo.Service
-@using demo.Helper
 
 @model ArticleViewModel
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        @{ Html.RenderPartial("~/Views/Article/Buttons.cshtml", Model); }
-        <div id="article">
-            @{ Html.RenderPartial("~/Views/Article/EditInfos.cshtml", Model); }
-        </div>
+<div class="form-horizontal">
+    @{ Html.RenderPartial("~/Views/Article/Buttons.cshtml", Model); }
+    <div id="article">
+        @{ Html.RenderPartial("~/Views/Article/EditInfos.cshtml", Model); }
     </div>
-}
+</div>

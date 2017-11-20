@@ -18,9 +18,10 @@
                 {
                     HttpMethod = "GET",
                     InsertionMode = InsertionMode.Replace,
-                    LoadingElementId = "ajaxdeleting",
+                    LoadingElementId = "page-loading",
                     UpdateTargetId = "tobeupdated",
-                    OnSuccess = "turnOffDeleteStyle"
+                    OnBegin = "turnOffDeleteStyle",
+                    OnComplete = "selectFirstTab"
                 })
         </div>
         <div class="edit-del-cancel">
@@ -29,5 +30,3 @@
     </div>
 </div>
 <div class="del-background"></div>
-<div class="loading hide-loading" id="ajaxdeleting"><div><span>Deleting page...</span></div></div>
-

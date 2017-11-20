@@ -33,6 +33,18 @@
 			return article;
 		}
 
+		public ArticleViewModel Get(string title)
+		{
+			ArticleViewModel article = null;
+			var articleData = articleRepo.GetAll().FirstOrDefault(x => x.Title.Equals(title, System.StringComparison.InvariantCultureIgnoreCase));
+			if (articleData != null)
+			{
+				article = GetArticle(articleData);
+			}
+
+			return article;
+		}
+
 		public IEnumerable<ArticleViewModel> GetAll()
 		{
 			foreach(var item in articleRepo.GetAll())

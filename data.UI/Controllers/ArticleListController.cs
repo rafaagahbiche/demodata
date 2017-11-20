@@ -13,7 +13,8 @@ namespace demo.UI.Controllers
 			this.service = service;
 		}
 
-		// GET: ArticleList
+		[Route("")]
+		[Route("article-editor")]
 		public ActionResult Index()
         {
             return View(service.GetGlobe());

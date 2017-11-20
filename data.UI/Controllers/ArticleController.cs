@@ -14,15 +14,15 @@ namespace demo.UI.Controllers
 			this.service = service;
 		}
 
+		[Route("article-viewer/{title}")]
+		public ViewResult Display(string title)
+		{
+			return View(service.Get(title));
+		}
+
 		[HttpPost]
 		public PartialViewResult Delete(int id)
 		{
-			var articleViewModel = new ArticleViewModel()
-			{
-				Id = -1,
-				PagesGlobe = new ArticlePages()
-			};
-
 			if (id != -1)
 			{
 				service.Delete(id);
@@ -31,10 +31,16 @@ namespace demo.UI.Controllers
 			var firstArticle = service.GetFirstArticle();
 			if (firstArticle != null)
 			{
-				return PartialView("EditInfos", firstArticle);
+				return PartialView("Edit", firstArticle);
 			}
 
-			return PartialView("EditInfos", articleViewModel);
+			var articleViewModel = new ArticleViewModel()
+			{
+				Id = -1,
+				PagesGlobe = new ArticlePages()
+			};
+
+			return PartialView("Edit", articleViewModel);
 		}
 
 		[HttpPost]
@@ -51,14 +57,14 @@ namespace demo.UI.Controllers
 
 			// TODO handle case when article is null after update/insert
 
-			return PartialView("EditInfos", articleViewModel);
+			return PartialView("Edit", articleViewModel);
 		}
 
 		[HttpGet]
 		public PartialViewResult ShowArticleContent(int articleId)
 		{
 			var article = service.Get(articleId);
-			return PartialView("EditInfos", article ?? new ArticleViewModel() { Id = -1 });
+			return PartialView("Edit", article ?? new ArticleViewModel() { Id = -1 });
 		}
 
 		[HttpGet]
