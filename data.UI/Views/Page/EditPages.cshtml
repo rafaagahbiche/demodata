@@ -31,16 +31,14 @@
             </li>
         </ul>
     </div>
-    <div class="col-md-10 tab-content" id="tobeupdated">
-        @if (Model.FirstPage != null)
-        {
-            { Html.RenderPartial("~/Views/Page/Edit.cshtml", Model.FirstPage); }
-        }
-        else
-        {
-            { Html.RenderPartial("~/Views/Page/Edit.cshtml", new PageViewModel() { Id = -1 }); }
-        }
-    </div>
+    @if (Model.FirstPage != null)
+    {
+        { Html.RenderPartial("~/Views/Page/Edit.cshtml", Model.FirstPage); }
+    }
+    else
+    {
+        { Html.RenderPartial("~/Views/Page/Edit.cshtml", new PageViewModel() { Id = -1 }); }
+    }
 </div>
 
 

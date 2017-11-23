@@ -48,7 +48,7 @@
     text-align:center;
 }
 
-#pager > ul span{
+#pager > ul span {
     color:white; 
     font-weight: bold;
     font-size:2em; 
@@ -87,6 +87,11 @@ article > header {
     margin:auto;
     text-align:left;
     width:90%;
+}
+
+article > header div.description {
+    font-style: italic;
+    color: #ababab; 
 }
 
 article > header > div h1 {

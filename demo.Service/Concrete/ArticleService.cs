@@ -122,7 +122,8 @@
                 var firstPage = GetFirstPage(article.Id);
                 article.PagesGlobe.FirstPage = firstPage ?? new PageViewModel() { Id = -1 };
                 article.PagesGlobe.Pages = GetPages(articleData.Id);
-                article.PagesGlobe.ArticleId = articleData.Id;
+				article.PagesGlobe.Count = article.PagesGlobe.Pages.Count();
+				article.PagesGlobe.ArticleId = articleData.Id;
             }
         
             return article;

@@ -32,6 +32,8 @@ var initButtonFunctions = function () {
     initPageFunctions();
 }
 
+var loadingObj = $(".loading").loading("Saving page");
+
 $(function () {
     initButtonFunctions();
     initAddArticleTabOnclick();

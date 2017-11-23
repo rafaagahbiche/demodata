@@ -432,7 +432,7 @@
     <Content Include="Scripts\tinymce\utils\form_utils.js" />
     <Content Include="Scripts\tinymce\utils\mctabs.js" />
     <Content Include="Scripts\tinymce\utils\validate.js" />
-    <Content Include="Style\img.css" />
+    <Content Include="Style\pager.css" />
     <Content Include="Style\site.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -472,6 +472,7 @@
     <Content Include="Style\font\icomoon.woff" />
     <Content Include="Views\Article\Display.cshtml" />
     <Content Include="Views\Page\Display.cshtml" />
+    <Content Include="Views\Page\Buttons.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

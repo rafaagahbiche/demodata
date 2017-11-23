@@ -1,19 +1,24 @@
 ﻿(function ($) {
-    $.fn.loading = function () {
-        //var settings = $.extend({}, { loadingClass: ".loading" }, options);
-        //var $base = $(this);
+    $.fn.loading = function (options) {
         //$base.isLoading = !$(settings.loadingClass).hasClass("hide-loading") && $(settings.loadingClass).hasClass("show-loading");
         //$base.isLoading = !$(settings.loadingClass).hasClass("hide-loading") && $(settings.loadingClass).hasClass("show-loading");
-        this.turnOnLoading = function () {
-            //if (!$base.isLoading) {
-            this.show();
-            //}
+        var methods = {}
+
+        var defaults = {
+            loadingText: "Loading..."
+        }
+
+        var settings = $.extend({}, defaults, options);
+        //var base = this;
+
+        methods.turnOnLoading = function () {
+            var $this = $(this);
+            $this.show();
         };
 
-        this.turnOffLoading = function () {
-            //if ($base.isLoading) {
-            this.hide();
-            //}
+        methods.turnOffLoading = function () {
+            var $this = $(this);
+            $this.hide();
         };
 
         return this;

@@ -71,9 +71,11 @@ function callSavePage(url, pageViewModel) {
                 disableTabLinks(false);
             }
 
+            //loadingObj.turnOffLoading();
             $('div.loading').hide();
         },
         error: function (err) {
+            //loadingObj.turnOffLoading();
             $('div.loading').hide();
         }
     });
@@ -112,6 +114,7 @@ var initSavePageEvent = function () {
     $('a.save-page').bind('click', function (e) {
         var contentToSend = tinymce.activeEditor.getContent();
         if (contentToSend != "") {
+            //loadingObj.turnOnLoading();
             $('div.loading').show();
             var id = $('div#pageinfos').find('input[type="hidden"]#Id').val();
             var parentId = $('div#article')

@@ -1,8 +1,7 @@
 ﻿@using demo.Service;
 
 @model PageViewModel
-
-@Html.EditorFor(m => m.DecodedContent, new { name = "DecodedContent", @class = "content-edit" })
-
-<input type="hidden" id="Id" name="Id" value=@Model.Id />
-
+<div id="pageinfos">
+    @Html.EditorFor(m => m.DecodedContent, new { name = "DecodedContent", @class = "content-edit" })
+    <input type="hidden" id="Id" name="Id" value=@Model.Id />
+</div>

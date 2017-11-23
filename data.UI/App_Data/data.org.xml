@@ -2,16 +2,16 @@
 <data>
   <articles>
     <article id="1">
-      <title>Kyrie Irving W</title>
+      <title>Kyrie Irving</title>
       <description>Kyrie Irving is suddenly the biggest domino on the market.
-Kyrie Irving is suddenly the biggest domino on the market.
+
 </description>
       <pages>
         <page id="1"></page>
       </pages>
     </article>
     <article id="2">
-      <title>DriveBy tR</title>
+      <title>DriveBy</title>
       <description>Watch Derrick Jones Jr. #DriveByDunk Over a Human
 Don’t worry; no one was injured, but feelings were hurt
 but feelings were hurt</description>
@@ -65,14 +65,6 @@ but feelings were hurt</description>
     <page id="10">
       <content>&amp;lt;p&amp;gt;dependency injection&amp;lt;/p&amp;gt;</content>
       <articleId>3</articleId>
-    </page>
-    <page id="13">
-      <content>&amp;lt;p&amp;gt;wwww hgjh&amp;lt;/p&amp;gt;</content>
-      <articleId>2</articleId>
-    </page>
-    <page id="16">
-      <content>&amp;lt;p&amp;gt;ashdJGAS SADF&amp;lt;/p&amp;gt;</content>
-      <articleId>2</articleId>
     </page>
     <page id="19">
       <content>&amp;lt;p&amp;gt;Required fields: article title and pahge content&amp;lt;/p&amp;gt;
