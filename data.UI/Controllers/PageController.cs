@@ -32,7 +32,7 @@ namespace demo.UI.Controllers
 		[HttpGet]
 		public PartialViewResult AddNewTab(int articleId)
 		{
-			return PartialView("PageTab", 
+			return PartialView("Tab", 
 				new PageViewModel() {
 					Id = -1,
 					ArticleId = articleId
@@ -44,7 +44,7 @@ namespace demo.UI.Controllers
 		{
 			if (pageViewModel.Id == 0)
 			{
-				return PartialView("EditInfos", 
+                return PartialView("Content", 
 					new PageViewModel() {
 						Id = -1,
 						ArticleId = -1
@@ -61,7 +61,7 @@ namespace demo.UI.Controllers
 				service.Update(pageViewModel);
 			}
 
-			return PartialView("EditInfos", pageViewModel);
+            return PartialView("Content", pageViewModel);
 		}
 
 		[HttpGet]

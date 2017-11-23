@@ -70,7 +70,7 @@ namespace demo.UI.Controllers
 		[HttpGet]
 		public PartialViewResult AddNewTab()
 		{
-			return PartialView("ArticleTab",
+			return PartialView("Tab",
 				new ArticleViewModel()
 				{
 					Id = -1

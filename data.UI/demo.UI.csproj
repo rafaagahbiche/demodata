@@ -458,13 +458,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Article\Edit.cshtml" />
     <Content Include="Views\Page\Edit.cshtml" />
-    <Content Include="Views\Page\EditInfos.cshtml" />
+    <Content Include="Views\Page\Content.cshtml" />
     <Content Include="Views\Page\Delete.cshtml" />
     <Content Include="Views\ArticleList\Index.cshtml" />
     <Content Include="Views\Page\EditPages.cshtml" />
-    <Content Include="Views\Page\PageTab.cshtml" />
+    <Content Include="Views\Page\Tab.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_jquery_full.cshtml" />
-    <Content Include="Views\Article\ArticleTab.cshtml" />
+    <Content Include="Views\Article\Tab.cshtml" />
     <Content Include="Views\Article\EditInfos.cshtml" />
     <Content Include="Views\Article\Buttons.cshtml" />
     <Content Include="Style\font\icomoon.eot" />

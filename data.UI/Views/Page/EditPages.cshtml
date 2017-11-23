@@ -11,14 +11,14 @@
                 foreach (var page in Model.Pages)
                 {
                     ViewData["count"] = tabCount++;
-                    { Html.RenderPartial("~/Views/Page/PageTab.cshtml", page); }
+                    { Html.RenderPartial("~/Views/Page/Tab.cshtml", page); }
                 }
             }
             else
             {
                 ViewData["count"] = 0;
                 {
-                    Html.RenderPartial("~/Views/Page/PageTab.cshtml", new PageViewModel
+                    Html.RenderPartial("~/Views/Page/Tab.cshtml", new PageViewModel
                     {
                         Id = -1,
                         ArticleId = Model.ArticleId

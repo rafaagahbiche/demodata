@@ -11,13 +11,13 @@
 <div id="article-list">
         @if (Model.First.Id == -1)
         {
-            { Html.RenderPartial("~/Views/Article/ArticleTab.cshtml", Model.First); }
+            { Html.RenderPartial("~/Views/Article/Tab.cshtml", Model.First); }
         }
         else
         {
             foreach (var article in Model.Articles)
             {
-                { Html.RenderPartial("~/Views/Article/ArticleTab.cshtml", article); }
+                { Html.RenderPartial("~/Views/Article/Tab.cshtml", article); }
             }
         }
         <div class="article-link plus">

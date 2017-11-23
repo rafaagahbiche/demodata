@@ -6,7 +6,7 @@
     <div class="article-page">
         <div class="page-edit">
             @{ Html.RenderPartial("~/Views/Page/Buttons.cshtml"); }
-            @{ Html.RenderPartial("~/Views/Page/EditInfos.cshtml", Model); }
+            @{ Html.RenderPartial("~/Views/Page/Content.cshtml", Model); }
         </div>
         @{ Html.RenderPartial("~/Views/Page/Delete.cshtml", Model); }
         <div class="loading hide-loading" id="page-loading"><div><span>Loading page content...</span></div></div>
