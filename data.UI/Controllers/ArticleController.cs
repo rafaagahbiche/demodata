@@ -3,7 +3,7 @@
 namespace demo.UI.Controllers
 {
 	using System.Web.Mvc;
-	using demo.Service;
+	using Service;
 
 	public class ArticleController : Controller
     {
@@ -31,7 +31,7 @@ namespace demo.UI.Controllers
 			var firstArticle = service.GetFirstArticle();
 			if (firstArticle != null)
 			{
-				return PartialView("Edit", firstArticle);
+				return PartialView("Editor", firstArticle);
 			}
 
 			var articleViewModel = new ArticleViewModel()
@@ -40,7 +40,7 @@ namespace demo.UI.Controllers
 				PagesGlobe = new ArticlePages()
 			};
 
-			return PartialView("Edit", articleViewModel);
+			return PartialView("Editor", articleViewModel);
 		}
 
 		[HttpPost]
@@ -55,16 +55,14 @@ namespace demo.UI.Controllers
 				articleViewModel = service.Update(articleViewModel);
 			}
 
-			// TODO handle case when article is null after update/insert
-
-			return PartialView("Edit", articleViewModel);
+			return PartialView("Editor", articleViewModel);
 		}
 
 		[HttpGet]
 		public PartialViewResult ShowArticleContent(int articleId)
 		{
 			var article = service.Get(articleId);
-			return PartialView("Edit", article ?? new ArticleViewModel() { Id = -1 });
+			return PartialView("Editor", article ?? new ArticleViewModel() { Id = -1 });
 		}
 
 		[HttpGet]

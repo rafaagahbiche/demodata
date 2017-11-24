@@ -4,11 +4,11 @@ using System.Web.Mvc;
 
 namespace demo.UI.Controllers
 {
-	public class ArticleListController : Controller
+	public class DashboardController : Controller
     {
 		private readonly IArticleService service;
 
-		public ArticleListController(IArticleService service)
+		public DashboardController(IArticleService service)
 		{
 			this.service = service;
 		}

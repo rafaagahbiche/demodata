@@ -203,7 +203,7 @@ div.article-page {
     margin-bottom:1.5%;
 }
 
-div.article-page > div.page-edit {
+div.page-edit {
     background-color: #5c98b4;
     padding:1%;
     box-sizing:border-box;
@@ -211,13 +211,12 @@ div.article-page > div.page-edit {
     -moz-box-sizing: border-box;
 }
 
-div.article-page > div.page-edit > div#pageinfos { 
+div#pageinfos { 
     width: 100%;
     display:inline-block;
 }
 
 div.page-buttons { 
-    width: 45%;
     margin: 0 0 8px 0;
     float:right;
     text-align: center;
@@ -226,19 +225,20 @@ div.page-buttons {
 }
 
 div.page-buttons > a {
-    width: 45%;
+    width: 70px;
     padding: 0 25px 0 25px;
     color: #fff;
+    display: inline-block;
 }
 
     div.page-buttons > a.save-page {
         background-color: #51c900;
-        margin-right: 10px;
+        margin-right: 5px;
     }
 
     div.page-buttons > a.delete-page {
         background-color: #000;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
 .clearfix:before, .clearfix:after {
@@ -332,7 +332,7 @@ div.del-confirm > div.del-warn > a > picture::after {
 
 /*Loading bloc while updating page*/
 
-div.article-page > div.loading {
+div.loading {
     display: none;
     position: absolute;
     height:100%;
@@ -347,11 +347,11 @@ div.article-page > div.loading {
     font-weight: bold;
 }
 
-div.article-page > div.loading > div {
+div.loading > div {
     margin: auto;
 }
 
-div.article-page > div.loading::after {
+div.loading::after {
     position: absolute;
     content: " ";
     background-image: url(../images/rolling.gif);
@@ -377,6 +377,10 @@ ul.tab-links > li.disabled > a {
     border-right: 1px solid #d4d4d4;
     border-left: 1px solid #d4d4d4;
     color:#888;
+}
+
+.tab-content {
+    position: relative;
 }
 
 .tab-content > div.active {

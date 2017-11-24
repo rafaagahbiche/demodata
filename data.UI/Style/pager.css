@@ -97,6 +97,7 @@ article > header div.description {
 article > header > div h1 {
     font-family: 'Playfair Display', serif;
     text-transform: uppercase;
+    font-size: 35px;
 }
 
 article > header > div h2 {

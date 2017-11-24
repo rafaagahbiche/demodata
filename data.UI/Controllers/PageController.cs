@@ -2,7 +2,7 @@
 namespace demo.UI.Controllers
 {
 	using System.Web.Mvc;
-	using demo.Service;
+	using Service;
 
 	public class PageController : Controller
     {
@@ -19,10 +19,10 @@ namespace demo.UI.Controllers
 			var pageViewModel = service.Get(pageId);
 			if (pageViewModel != null)
 			{
-				return PartialView("Edit", pageViewModel);
+				return PartialView("SinglePageEditor", pageViewModel);
 			}
 
-			return PartialView("Edit", 
+			return PartialView("SinglePageEditor", 
 				new PageViewModel() {
 					Id = -1,
 					ArticleId = articleId
@@ -77,11 +77,11 @@ namespace demo.UI.Controllers
 				var firstPageViewModel = service.GetFirstPageByArticleId(articleId);
 				if (firstPageViewModel != null)
 				{
-					return PartialView("Edit", firstPageViewModel);
+					return PartialView("SinglePageEditor", firstPageViewModel);
 				}
 			}
 
-			return PartialView("Edit", new PageViewModel() { Id = -1, ArticleId = articleId });
+			return PartialView("SinglePageEditor", new PageViewModel() { Id = -1, ArticleId = articleId });
 		}
 	}
 }

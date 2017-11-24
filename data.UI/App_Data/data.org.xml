@@ -3,7 +3,7 @@
   <articles>
     <article id="1">
       <title>Kyrie Irving</title>
-      <description>Kyrie Irving is suddenly the biggest domino on the market.
+      <description>The Boston Celtics, who have won 16 straight and own the league's best record, are rightly seen as strong contenders in the Eastern Conference this season, along with the three-time defending conference champion Cleveland Cavaliers.
 
 </description>
       <pages>
@@ -23,6 +23,10 @@ but feelings were hurt</description>
     <article id="5">
       <title>TODO s</title>
       <description>Still to do in this project</description>
+    </article>
+    <article id="6">
+      <title>No seulement</title>
+      <description>Mais aussi...</description>
     </article>
   </articles>
   <pages>
@@ -63,7 +67,10 @@ but feelings were hurt</description>
       <articleId>1</articleId>
     </page>
     <page id="10">
-      <content>&amp;lt;p&amp;gt;dependency injection&amp;lt;/p&amp;gt;</content>
+      <content>&amp;lt;h1&amp;gt;'Explicit' halftime talk leads Knicks to historic win against Toronto&amp;lt;/h1&amp;gt;
+&amp;lt;p&amp;gt;"He was unbelievable," Porzingis said.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;People will probably associate Hardaway with his $71 million contract for the foreseeable future. That's the way it goes in pro sports -- particularly in New York -- when you sign a large contract. (It's worth noting that the Knicks offered him the contract, so if you have an issue with Hardaway's cap hit, you should be angry with Knicks management, not Hardaway.) But no matter how you feel about the $71 million pact, there's no denying Hardaway has made a big impact for New York lately. The shooting guard is averaging 23.6 points, 6.4 rebounds and 4.8 assists in his past five games.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;"I love his intensity," Hornacek says. "He's an intense person out there, sometimes maybe too much, but it's all about winning. He wants to win."&amp;lt;/p&amp;gt;</content>
       <articleId>3</articleId>
     </page>
     <page id="19">
@@ -72,7 +79,14 @@ but feelings were hurt</description>
       <articleId>5</articleId>
     </page>
     <page id="20">
-      <content>&amp;lt;p&amp;gt;Nouvelle&amp;lt;/p&amp;gt;</content>
+      <content>&amp;lt;p&amp;gt;The wins have come for Hardaway and the Knicks lately. New York has won 10 of its past 14 after an 0-3 start, and on Wednesday avenged a blowout loss from last Friday against Toronto.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Lee and Hardaway were key factors Wednesday -- as they have been for much of the past three weeks.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Lee sparked the third-quarter rout, accounting for 13 of the Knicks' first 20 second-half points (11 points, one assist). Hardaway had 12 points, three assists and a block in New York's 28-0 run.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;A few months ago, it seemed that the Hardaway signing made Lee expendable. But Knicks management decided that the two shooting guards could thrive together. So far that decision has worked out well. The Knicks have outscored opponents by 3.7 points per 36 minutes when Hardaway and Lee share the floor, according to NBA.com.&amp;lt;/p&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;p&amp;gt;"They're both two-way players," Hornacek says. "... Those two guys give us good weapons on both sides of the court."&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Of course, Hornacek had harsher words for Lee and other players at halftime Wednesday. The message sunk in -- and the Knicks walked off the floor with a quality win.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;There's no way to quantify the impact of the halftime talk. But the idea that the Knicks respond well to internal criticism is important. Players say they can speak openly with one another without worrying about bruised egos or hurt feelings. Criticisms are delivered honestly and without hesitation, and then everyone moves on.&amp;lt;/p&amp;gt;</content>
       <articleId>3</articleId>
     </page>
     <page id="21">
@@ -86,6 +100,22 @@ but feelings were hurt</description>
     <page id="24">
       <content>&amp;lt;p&amp;gt;ggg gdfgsdf&amp;lt;/p&amp;gt;</content>
       <articleId>3</articleId>
+    </page>
+    <page id="27">
+      <content>&amp;lt;p&amp;gt;The Raptors are perennially waiting in the wings, but they have been shut down by&amp;amp;nbsp;&amp;lt;a href="http://www.espn.com/nba/player/_/id/1966/lebron-james"&amp;gt;LeBron James&amp;lt;/a&amp;gt;&amp;amp;nbsp;the past two seasons. The Raptors are off to a hot start this season, winning 11 of their first 16 games; BPI only gave that a 23.1 percent chance of happening. It now projects Toronto to win 56 games this season -- which is fourth best in the league, behind only the&amp;amp;nbsp;&amp;lt;a href="http://www.espn.com/nba/team/_/name/gs/golden-state-warriors"&amp;gt;Golden State Warriors&amp;lt;/a&amp;gt;, Celtics and&amp;amp;nbsp;&amp;lt;a href="http://www.espn.com/nba/team/_/name/hou/houston-rockets"&amp;gt;Houston Rockets&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The Raptors ranked fourth in quantified shot quality and third in quantified shooter impact, according to Second Spectrum. That means they are taking the fourth-best selection of shots and have the third best team of shot-makers. As a result, their offense is third in the league, according to BPI.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The Raptors have played the sixth-toughest schedule to date, but they have the second easiest schedule going forward. With a 73.1 percent chance of landing the No. 2 seed in&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The Raptors have played the sixth-toughest schedule to date, but they have the second easiest schedule going forward. With a 73.1 percent chance of landing the No. 2 seed in&amp;amp;nbsp;&amp;lt;/p&amp;gt;</content>
+      <articleId>1</articleId>
+    </page>
+    <page id="28">
+      <content>&amp;lt;p&amp;gt;tryhrty&amp;lt;/p&amp;gt;</content>
+      <articleId>5</articleId>
+    </page>
+    <page id="29">
+      <content>&amp;lt;p&amp;gt;New stuff&amp;lt;/p&amp;gt;</content>
+      <articleId>6</articleId>
     </page>
   </pages>
 </data>

@@ -441,7 +441,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
-    <Compile Include="Controllers\ArticleListController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -456,16 +456,16 @@
     </Content>
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Article\Edit.cshtml" />
-    <Content Include="Views\Page\Edit.cshtml" />
+    <Content Include="Views\Article\Editor.cshtml" />
+    <Content Include="Views\Page\SinglePageEditor.cshtml" />
     <Content Include="Views\Page\Content.cshtml" />
     <Content Include="Views\Page\Delete.cshtml" />
-    <Content Include="Views\ArticleList\Index.cshtml" />
-    <Content Include="Views\Page\EditPages.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Page\PagesEditor.cshtml" />
     <Content Include="Views\Page\Tab.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_jquery_full.cshtml" />
     <Content Include="Views\Article\Tab.cshtml" />
-    <Content Include="Views\Article\EditInfos.cshtml" />
+    <Content Include="Views\Article\Properties.cshtml" />
     <Content Include="Views\Article\Buttons.cshtml" />
     <Content Include="Style\font\icomoon.eot" />
     <Content Include="Style\font\icomoon.ttf" />

@@ -101,7 +101,7 @@ var initPageTabOnclick = function () {
             type: "GET",
             data: { pageId: -1, articleId: parentId },
             success: function (data) {
-                $('div#tobeupdated').html(data);
+                $('div#page-editor').html(data);
                 initEventsForSelectedTab();
             }
         });

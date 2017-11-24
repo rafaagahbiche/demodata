@@ -23,7 +23,7 @@ namespace data.UI
 			routes.MapRoute(
 				name: "article-editor",
 				url: "article-editor",
-				defaults: new { controller = "ArticleList", action = "Index" }
+				defaults: new { controller = "Dashboard", action = "Index" }
 			);
 			routes.MapRoute(
 				name: "article-viewer",

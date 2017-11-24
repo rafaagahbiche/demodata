@@ -26,19 +26,22 @@
                 }
             }
             @{ var plusclass = Model.FirstPage != null && @Model.FirstPage.Id != -1 ? "plus" : "plus disabled"; }
-            <li class= "@plusclass">
+            <li class="@plusclass">
                 <a id="tabplus" href="#">&#x2B;</a>
             </li>
         </ul>
     </div>
-    @if (Model.FirstPage != null)
-    {
-        { Html.RenderPartial("~/Views/Page/Edit.cshtml", Model.FirstPage); }
-    }
-    else
-    {
-        { Html.RenderPartial("~/Views/Page/Edit.cshtml", new PageViewModel() { Id = -1 }); }
-    }
+    <div class="col-md-10 tab-content" id="page-editor">
+
+        @if (Model.FirstPage != null)
+        {
+            { Html.RenderPartial("~/Views/Page/SinglePageEditor.cshtml", Model.FirstPage); }
+        }
+        else
+        {
+            { Html.RenderPartial("~/Views/Page/SinglePageEditor.cshtml", new PageViewModel() { Id = -1 }); }
+        }
+    </div>
 </div>
 
 
