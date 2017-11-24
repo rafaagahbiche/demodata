@@ -5,16 +5,6 @@
     $('li.tab').last().children('a')[0].href = link.replace(oldPageId, newPageId);
 }
 
-var initEventsForSelectedTab = function () {
-    initSavePageEvent();
-    editDeleteEvent();
-}
-
-var initPageFunctions = function () {
-    initPageTabOnclick();
-    initEventsForSelectedTab();
-}
-
 function disableTabLinks(disable) {
     if (disable) {
         $(tabLinksSelector).children('li').each(function () {
@@ -81,36 +71,7 @@ function callSavePage(url, pageViewModel) {
     });
 }
 
-var initPageTabOnclick = function () {
-    $("a#tabplus").bind('click', function (e) {
-        $('ul#tabs').children('li.active').removeClass('active');
-        disableTabLinks(true);
-        var parentId = $('div#article')
-            .children('input[type="hidden"]#Id').val();
-        $.ajax({
-            url: '/Page/AddNewTab',
-            type: "GET",
-            data: { articleId: parentId },
-            success: function (data) {
-                $(data).insertBefore('li.plus');
-            }
-        });
-
-        $.ajax({
-            url: '/Page/ShowPageContent',
-            type: "GET",
-            data: { pageId: -1, articleId: parentId },
-            success: function (data) {
-                $('div#page-editor').html(data);
-                initEventsForSelectedTab();
-            }
-        });
-
-        e.preventDefault();
-    });
-}
-
-var initSavePageEvent = function () {
+var bindSavePageEvent = function () {
     $('a.save-page').bind('click', function (e) {
         var contentToSend = tinymce.activeEditor.getContent();
         if (contentToSend != "") {
@@ -132,7 +93,7 @@ var initSavePageEvent = function () {
     });
 }
 
-var editDeleteEvent = function () {
+var bindEditDeletePageEvent = function () {
     $('.delete-page').bind('click', function () {
         disableTabLinks(true);
         showDeleteWarning(true);
@@ -144,3 +105,41 @@ var editDeleteEvent = function () {
     });
 }
 
+var bindAddPageTabEvent = function () {
+    $("a#tabplus").bind('click', function (e) {
+        $('ul#tabs').children('li.active').removeClass('active');
+        disableTabLinks(true);
+        var parentId = $('div#article')
+            .children('input[type="hidden"]#Id').val();
+        $.ajax({
+            url: '/Page/AddNewTab',
+            type: "GET",
+            data: { articleId: parentId },
+            success: function (data) {
+                $(data).insertBefore('li.plus');
+            }
+        });
+
+        $.ajax({
+            url: '/Page/ShowPageContent',
+            type: "GET",
+            data: { pageId: -1, articleId: parentId },
+            success: function (data) {
+                $('div#page-editor').html(data);
+                bindSelectedPageEvents();
+            }
+        });
+
+        e.preventDefault();
+    });
+}
+
+var bindSelectedPageEvents = function () {
+    bindSavePageEvent();
+    bindEditDeletePageEvent();
+}
+
+var bindPageEvents = function () {
+    bindAddPageTabEvent();
+    bindSelectedPageEvents();
+}

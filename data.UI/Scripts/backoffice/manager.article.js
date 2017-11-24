@@ -1,9 +1,4 @@
-﻿var initArticleFunctions = function () {
-    initSaveArticleEvent();
-    initDeleteArticleEvent();
-}
-
-function disableTabArticleLinks(disable) {
+﻿function disableTabArticleLinks(disable) {
     if (disable) {
         $("div#article-list").children('div').each(function () {
             if (!$(this).hasClass("disabled")) {
@@ -43,10 +38,10 @@ function callSaveArticle(url, articleViewModel) {
                 var newArticleId = $('div#article').children('input[type="hidden"]#Id').val();
                 AssignTabToArticle(oldArticleId, newArticleId);
                 disableTabArticleLinks(false);
-                initEventsForSelectedTab();
+                bindSelectedPageEvents();
             }
 
-            initButtonFunctions();
+            bindEvents();
             $(".loading-article").hide();
         },
         error: function (err) {
@@ -55,7 +50,7 @@ function callSaveArticle(url, articleViewModel) {
     });
 }
 
-var initSaveArticleEvent = function () {
+var bindSaveArticleEvent = function () {
     $('a.save-article').bind('click', function (e) {
         var title = $('div#article').find('input#Title').val();
         if (title != "") {
@@ -75,7 +70,7 @@ var initSaveArticleEvent = function () {
     });
 }
 
-var initDeleteArticleEvent = function () {
+var bindDeleteArticleEvent = function () {
     $('a.delete-article').bind('click', function (e) {
         var articleId = $('div#article').children('input[type="hidden"]#Id').val();
         $(".loading-article").show();
@@ -87,7 +82,7 @@ var initDeleteArticleEvent = function () {
                 $('div#article-details').html(data);
                 deleteCurrentArticleTab();
                 disableTabArticleLinks(false);
-                initButtonFunctions();
+                bindEvents();
                 $(".loading-article").hide();
             }
         });
@@ -96,7 +91,7 @@ var initDeleteArticleEvent = function () {
     });
 }
 
-var initAddArticleTabOnclick = function () {
+var bindAddArticleTabEvent = function () {
     $("a#add-article-tab").bind('click', function (e) {
         $('div.article-link.active').removeClass('active');
         disableTabArticleLinks(true);
@@ -114,10 +109,15 @@ var initAddArticleTabOnclick = function () {
             data: { articleId: -1 },
             success: function (data) {
                 $('div#article-details').html(data);
-                initButtonFunctions();
+                bindEvents();
             }
         });
 
         e.preventDefault();
     });
+}
+
+var bindArticleEvents = function () {
+    bindSaveArticleEvent();
+    bindDeleteArticleEvent();
 }

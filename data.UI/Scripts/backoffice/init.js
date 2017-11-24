@@ -3,7 +3,7 @@ var confirmSelector = 'div.del-confirm';
 var backgroundSelector = 'div.del-background';
 var hiddenBlocSelector = 'div.hidden-bloc';
 
-// Called by PageTab OnBegin
+// Called by Page.Tab OnBegin
 var selectCurrentTab = function () {
     $('ul#tabs').children('li.active').removeClass('active');
     $(this).parent().addClass('active');
@@ -18,24 +18,24 @@ var turnOffDeleteStyle = function () {
 // Called by Page.Delete OnComplete
 var selectFirstTab = function () {
     deleteCurrentTab();
-    initEventsForSelectedTab();
+    bindSelectedPageEvents();
 }
 
-// Called by ArticleTab OnBegin
+// Called by Article.Tab OnBegin
 var selectActiveArticle = function () {
     $('div#article-list').children('div.active').removeClass('active');
     $(this).parent().addClass('active');
 }
 
-var initButtonFunctions = function () {
-    initArticleFunctions();
-    initPageFunctions();
+var bindEvents = function () {
+    bindArticleEvents();
+    bindPageEvents();
 }
 
 var loadingObj = $(".loading").loading("Saving page");
 
 $(function () {
-    initButtonFunctions();
-    initAddArticleTabOnclick();
+    bindEvents();
+    bindAddArticleTabEvent();
     $('div.article-link').first().addClass('active');
 });
