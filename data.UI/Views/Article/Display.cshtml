@@ -2,20 +2,20 @@
 
 
 @{
-    ViewBag.Title = "Article Viewer";
+    ViewBag.Title = "Article Reader";
     ViewBag.Logo = "../images/ebook64.png";
     ViewBag.Header = "Article Viewer";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<article>
+<article class="row">
     <header class="manager-page-title">
         <div class="title">
             <h1><span>@Model.Title</span></h1>
         </div>
         <div class="description"><h2>@Model.Description</h2></div>
     </header>
-    <div>
+    <div class="col-md-12">
         @if (Model.PagesGlobe != null)
         {
             <div class="pager-container">
