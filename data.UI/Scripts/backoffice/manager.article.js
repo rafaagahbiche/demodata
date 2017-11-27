@@ -1,20 +1,4 @@
-﻿function disableTabArticleLinks(disable) {
-    if (disable) {
-        $("div#article-list").children('div').each(function () {
-            if (!$(this).hasClass("disabled")) {
-                $(this).addClass("disabled");
-            }
-        });
-    } else {
-        $("div#article-list").children('div').each(function () {
-            if ($(this).hasClass("disabled")) {
-                $(this).removeClass("disabled");
-            }
-        });
-    }
-}
-
-var deleteCurrentArticleTab = function () {
+﻿var deleteCurrentArticleTab = function () {
     $('div.article-link.active').remove();
     $('div.article-link:first-child').addClass('active');
 }
@@ -37,15 +21,15 @@ function callSaveArticle(url, articleViewModel) {
             if (oldArticleId == -1) {
                 var newArticleId = $('div#article').children('input[type="hidden"]#Id').val();
                 AssignTabToArticle(oldArticleId, newArticleId);
-                disableTabArticleLinks(false);
+                disableMenuItems.turnOff();
                 bindSelectedPageEvents();
             }
 
             bindEvents();
-            $(".loading-article").hide();
+            loadingArticle.turnOff();
         },
         error: function (err) {
-            $(".loading-article").hide();
+            loadingArticle.turnOff();
         }
     });
 }
@@ -54,7 +38,7 @@ var bindSaveArticleEvent = function () {
     $('a.save-article').bind('click', function (e) {
         var title = $('div#article').find('input#Title').val();
         if (title != "") {
-            $(".loading-article").show();
+            loadingArticle.turnOn();
             var articleId = $('div#article').children('input[type="hidden"]#Id').val();
             var desc = $('div#article').find('textarea#Description').val();
             var articleViewModel = {
@@ -73,7 +57,7 @@ var bindSaveArticleEvent = function () {
 var bindDeleteArticleEvent = function () {
     $('a.delete-article').bind('click', function (e) {
         var articleId = $('div#article').children('input[type="hidden"]#Id').val();
-        $(".loading-article").show();
+        loadingArticle.turnOn();
         $.ajax({
             url: this.href,
             type: "POST",
@@ -81,9 +65,9 @@ var bindDeleteArticleEvent = function () {
             success: function (data) {
                 $('div#article-details').html(data);
                 deleteCurrentArticleTab();
-                disableTabArticleLinks(false);
                 bindEvents();
-                $(".loading-article").hide();
+                disableMenuItems.turnOff();
+                loadingArticle.turnOff();
             }
         });
 
@@ -92,28 +76,16 @@ var bindDeleteArticleEvent = function () {
 }
 
 var bindAddArticleTabEvent = function () {
-    $("a#add-article-tab").bind('click', function (e) {
-        $('div.article-link.active').removeClass('active');
-        disableTabArticleLinks(true);
-        $.ajax({
-            url: '/Article/AddNewTab',
-            type: "GET",
-            success: function (data) {
-                $(data).insertBefore('div.plus');
-            }
-        });
-
-        $.ajax({
-            url: '/Article/ShowArticleContent',
-            type: "GET",
-            data: { articleId: -1 },
-            success: function (data) {
-                $('div#article-details').html(data);
-                bindEvents();
-            }
-        });
-
-        e.preventDefault();
+    var addArticleTab = $("a#add-article-tab").addNewMenuItem({
+        menuItems: disableMenuItems,
+        callBack: bindEvents,
+        addNewAction: '/Article/AddNewTab',
+        showEmptyContentAction: '/Article/ShowArticleContent',
+        addNewActionExtraData: null,
+        showEmptyContentExtraData: { articleId: -1 },
+        insertBeforeSelector: 'div.plus',
+        activeLinkSelector: 'div.article-link.active',
+        containerSelector: 'div#article-details'
     });
 }
 

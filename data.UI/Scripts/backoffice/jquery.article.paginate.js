@@ -55,9 +55,32 @@
                     }
                 });
             }
-        }   
+        }
 
-        var setWidthPage = function() {
+        var setOnKeyupEvents = function () {
+            $(document).keyup(function (e) {
+                switch (e.keyCode) {
+                    case 37: // left
+                        if (settings.currentpage > 1) {
+                            navigateTo(settings.currentpage - 1);
+                        }
+                        else {
+                            base.css('color', 'black');
+                        }
+                        break;
+                    case 39: // right
+                        if (settings.currentpage < base.children('li').length) {
+                            navigateTo(settings.currentpage + 1);
+                        }
+                        else {
+                            base.css('color', 'black');
+                        }
+                        break;
+                }
+            });
+        }
+
+        var setWidthPage = function () {
             var maxHeight = 0;
             var liWidth = $(settings.itemslistSelector).width();
             base.children('li').each(function () {
@@ -79,6 +102,7 @@
             setWidthPage();
             setWidthPage();
             setOnClickEvents();
+            setOnKeyupEvents();
         }
 
         return this.each(function () {

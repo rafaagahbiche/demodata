@@ -1,17 +1,18 @@
 ﻿@using demo.Service;
 
 @model PageViewModel
-
-<div class="del-confirm">
-    <div class="del-warn">
-        <picture></picture>
-        <div>
-            <span>Do you want to delete this page?</span>
+<div class="page-delete hidden-bloc">
+    <div class="del-background"></div>
+    <div class="del-confirm">
+        <div class="del-warn">
+            <picture></picture>
+            <div>
+                <span>Do you want to delete this page?</span>
+            </div>
         </div>
-    </div>
-    <div class="edit-del-butt">
-        <div class="edit-del-ok">
-            @Ajax.ActionLink("Delete",
+        <div class="edit-del-butt">
+            <div class="edit-del-ok">
+                @Ajax.ActionLink("Delete",
                          "Delete", "Page",
                 new { pageId = Model.Id, articleId = Model.ArticleId },
                 new AjaxOptions
@@ -23,11 +24,10 @@
                     OnBegin = "turnOffDeleteStyle",
                     OnComplete = "selectFirstTab"
                 })
-        </div>
-        <div class="edit-del-cancel">
-            <span>Cancel</span>
+            </div>
+            <div class="edit-del-cancel">
+                <span>Cancel</span>
+            </div>
         </div>
     </div>
 </div>
-@*test del-background wrapping the whole thing*@
-<div class="del-background"></div>

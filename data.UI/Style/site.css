@@ -255,10 +255,6 @@ div.page-buttons > a {
 }
 
 /*Deleting bloc warning*/
-div.del-confirm, 
-div.del-background {
-    display:none;
-}
 
 div.del-background {
 	z-index:1;

@@ -5,29 +5,6 @@
     $('li.tab').last().children('a')[0].href = link.replace(oldPageId, newPageId);
 }
 
-function disableTabLinks(disable) {
-    if (disable) {
-        $(tabLinksSelector).children('li').each(function () {
-            $(this).addClass("disabled");
-        });
-    }
-    else {
-        $(tabLinksSelector).children('li').each(function () {
-            $(this).removeClass("disabled");
-        });
-    }
-}
-
-function showDeleteWarning(show) {
-    if (show) {
-        $(confirmSelector).show();
-        $(backgroundSelector).show();
-    } else {
-        $(confirmSelector).hide();
-        $(backgroundSelector).hide();
-    }
-}
-
 var deleteCurrentTab = function () {
     if ($('ul#tabs').children("li.tab").length > 1) {
         $('ul#tabs').find('li.active').remove();
@@ -58,15 +35,13 @@ function callSavePage(url, pageViewModel) {
             if (oldPageId == -1) {
                 $('li.active').find('a').html($('li.tab').length);
                 AssignTabToEditor();
-                disableTabLinks(false);
+                disablePageTabs.turnOff();
             }
 
-            //loadingObj.turnOffLoading();
-            $('div.loading').hide();
+            loadingPage.turnOff();
         },
         error: function (err) {
-            //loadingObj.turnOffLoading();
-            $('div.loading').hide();
+            loadingPage.turnOff();
         }
     });
 }
@@ -75,8 +50,7 @@ var bindSavePageEvent = function () {
     $('a.save-page').bind('click', function (e) {
         var contentToSend = tinymce.activeEditor.getContent();
         if (contentToSend != "") {
-            //loadingObj.turnOnLoading();
-            $('div.loading').show();
+            loadingPage.turnOn();
             var id = $('div#pageinfos').find('input[type="hidden"]#Id').val();
             var parentId = $('div#article')
                 .children('input[type="hidden"]#Id').val();
@@ -95,51 +69,39 @@ var bindSavePageEvent = function () {
 
 var bindEditDeletePageEvent = function () {
     $('.delete-page').bind('click', function () {
-        disableTabLinks(true);
-        showDeleteWarning(true);
+        disablePageTabs.turnOn();
+        $("div.page-delete").show();
     });
 
     $('.edit-del-cancel').bind('click', function () {
-        disableTabLinks(false);
-        showDeleteWarning(false);
+        disablePageTabs.turnOff();
+        $("div.page-delete").hide();
     });
 }
 
 var bindAddPageTabEvent = function () {
-    $("a#tabplus").bind('click', function (e) {
-        $('ul#tabs').children('li.active').removeClass('active');
-        disableTabLinks(true);
-        var parentId = $('div#article')
-            .children('input[type="hidden"]#Id').val();
-        $.ajax({
-            url: '/Page/AddNewTab',
-            type: "GET",
-            data: { articleId: parentId },
-            success: function (data) {
-                $(data).insertBefore('li.plus');
-            }
-        });
-
-        $.ajax({
-            url: '/Page/ShowPageContent',
-            type: "GET",
-            data: { pageId: -1, articleId: parentId },
-            success: function (data) {
-                $('div#page-editor').html(data);
-                bindSelectedPageEvents();
-            }
-        });
-
-        e.preventDefault();
+    var parentId = $('div#article').children('input[type="hidden"]#Id').val();
+    var addPageTab = $("a#tabplus").addNewMenuItem({
+        menuItems: disablePageTabs,
+        callBack: bindSelectedPageEvents,
+        addNewAction: '/Page/AddNewTab',
+        showEmptyContentAction: '/Page/ShowPageContent',
+        addNewActionExtraData: { articleId: parentId },
+        showEmptyContentExtraData: { pageId: -1, articleId: parentId },
+        insertBeforeSelector: 'li.plus',
+        activeLinkSelector: 'li.tab.active',
+        containerSelector: 'div#page-editor'
     });
 }
 
 var bindSelectedPageEvents = function () {
+    disablePageTabs = $('ul.tab-links').disable();
+    loadingPage = $(".loading").loading();
     bindSavePageEvent();
     bindEditDeletePageEvent();
 }
 
 var bindPageEvents = function () {
-    bindAddPageTabEvent();
     bindSelectedPageEvents();
+    bindAddPageTabEvent();
 }

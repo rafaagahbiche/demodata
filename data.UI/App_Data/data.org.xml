@@ -24,10 +24,6 @@ but feelings were hurt</description>
       <title>TODO s</title>
       <description>Still to do in this project</description>
     </article>
-    <article id="6">
-      <title>No seulement</title>
-      <description>Mais aussi...</description>
-    </article>
   </articles>
   <pages>
     <page id="1">
@@ -95,10 +91,6 @@ but feelings were hurt</description>
     </page>
     <page id="22">
       <content>&amp;lt;p&amp;gt;dshfghsad saFKJHDSF&amp;amp;nbsp;&amp;lt;/p&amp;gt;</content>
-      <articleId>3</articleId>
-    </page>
-    <page id="24">
-      <content>&amp;lt;p&amp;gt;ggg gdfgsdf&amp;lt;/p&amp;gt;</content>
       <articleId>3</articleId>
     </page>
     <page id="27">
