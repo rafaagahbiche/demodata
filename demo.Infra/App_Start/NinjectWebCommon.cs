@@ -17,8 +17,6 @@ namespace demo.Infra.App_Start
 	public static class NinjectWebCommon
 	{
 		private static readonly Bootstrapper bootstrapper = new Bootstrapper();
-		private static readonly string _path = @"/App_Data/data.xml";
-			
 
 		/// <summary>
 		/// Starts the application
@@ -66,10 +64,15 @@ namespace demo.Infra.App_Start
 		/// <param name="kernel">The kernel.</param>
 		private static void RegisterServices(IKernel kernel)
 		{
-			var filepath = System.Configuration.ConfigurationManager.AppSettings["datafile"];
+			var originalFilepath = System.Configuration.ConfigurationManager.AppSettings["originaldata"];
+			var userFilepath = System.Configuration.ConfigurationManager.AppSettings["userdata"];
+
+			//kernel.Bind<IDataContext>().To<DataContext>().InRequestScope()
+			//	.WithConstructorArgument("originalDataPath", string.Format(@"{0}", originalFilepath))
+			//	.WithConstructorArgument("userDataPath", string.Format(@"{0}", userFilepath));
 
 			kernel.Bind<IDataContext>().To<DataContext>().InRequestScope()
-				.WithConstructorArgument("path", string.Format(@"{0}", filepath));
+				.WithConstructorArgument("originalDataPath", string.Format(@"{0}", userFilepath));
 
 			kernel.Bind<IArticleService>().To<ArticleService>();
 			kernel.Bind<IPageService>().To<PageService>();

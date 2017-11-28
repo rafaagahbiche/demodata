@@ -10,5 +10,11 @@ namespace data.UI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 		}
+
+		protected void Session_Start()
+		{
+			System.Random rnd = new System.Random();
+			Session["new_session"] = rnd.Next();
+		}
 	}
 }
