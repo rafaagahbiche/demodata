@@ -67,12 +67,12 @@ namespace demo.Infra.App_Start
 			var originalFilepath = System.Configuration.ConfigurationManager.AppSettings["originaldata"];
 			var userFilepath = System.Configuration.ConfigurationManager.AppSettings["userdata"];
 
-			//kernel.Bind<IDataContext>().To<DataContext>().InRequestScope()
-			//	.WithConstructorArgument("originalDataPath", string.Format(@"{0}", originalFilepath))
-			//	.WithConstructorArgument("userDataPath", string.Format(@"{0}", userFilepath));
+            kernel.Bind<IDataContext>().To<DataContext>().InRequestScope()
+                .WithConstructorArgument("originalDataPath", string.Format(@"{0}", originalFilepath))
+                .WithConstructorArgument("userDataPath", string.Format(@"{0}", userFilepath));
 
-			kernel.Bind<IDataContext>().To<DataContext>().InRequestScope()
-				.WithConstructorArgument("originalDataPath", string.Format(@"{0}", userFilepath));
+            //kernel.Bind<IDataContext>().To<DataContext>().InRequestScope()
+            //    .WithConstructorArgument("originalDataPath", string.Format(@"{0}", userFilepath));
 
 			kernel.Bind<IArticleService>().To<ArticleService>();
 			kernel.Bind<IPageService>().To<PageService>();
