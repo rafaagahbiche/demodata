@@ -82,7 +82,8 @@
 
         var setWidthPage = function () {
             var maxHeight = 0;
-            var liWidth = $(settings.itemslistSelector).width();
+            var liWidth = $(settings.listcontainerSelector).width();
+            var pagerWidth = $(settings.listcontainerSelector).outerWidth();
             base.children('li').each(function () {
                 $(this).css('width', liWidth + 'px');
                 if ($(this).outerHeight(false) > maxHeight) {
@@ -92,7 +93,7 @@
 
             $(settings.itemslistSelector).css('height', maxHeight + 10 + 'px');
             $(settings.listcontainerSelector).css('height', maxHeight + 10 + 'px');
-            $(settings.pagercontainerSelector).css('width', liWidth + 'px');
+            $(settings.pagercontainerSelector).css('width', pagerWidth + 'px');
 
             var ulWidth = base.children('li').length * liWidth;
             base.css('width', ulWidth + 'px');
@@ -100,7 +101,7 @@
 
         this.init = function () {
             setWidthPage();
-            setWidthPage();
+            //setWidthPage();
             setOnClickEvents();
             setOnKeyupEvents();
         }

@@ -1,5 +1,7 @@
 ﻿.pager-container {
     display: inline-block;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 #pager{
@@ -11,6 +13,7 @@
     padding-left: 0;
     margin:0;
 }
+
 #pager > ul > li:hover {
     background-color:white;
     border: 1px solid #008ac9;
@@ -51,15 +54,14 @@
 #pager > ul span {
     color:white; 
     font-weight: bold;
-    font-size:2em; 
+    font-size: 2em; 
     line-height: 0.6em;
 }
 
 .img-list-container {
     position: absolute;
-    width: 85%;
     border: 1px solid #DEDCDC;
-    text-align: left;
+    text-align: center;
 }
 
 .img-list {
@@ -67,6 +69,7 @@
     position: relative;
     overflow-x: hidden;
     margin-bottom: 4em;
+    text-align: left;
 }
      
 .img-display {
@@ -87,7 +90,6 @@ article {
 article > header {
     margin:auto;
     text-align:left;
-    width:90%;
 }
 
 article > header div.description {
@@ -98,10 +100,9 @@ article > header div.description {
 article > header > div h1 {
     font-family: 'Playfair Display', serif;
     text-transform: uppercase;
-    font-size: 35px;
 }
 
-article > header > div h2 {
+article > header > div h2, h3 {
     font-family: 'Playfair Display', serif;
 }
 
@@ -109,7 +110,6 @@ article > div {
     margin: auto;
     text-align: center;
     overflow:hidden;
-    width: 100%;
 }
 
 article > label {
