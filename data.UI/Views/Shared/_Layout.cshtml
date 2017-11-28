@@ -25,16 +25,16 @@
     @RenderSection("Scripts", required: false)
 </head>
 <body>
-    <div class="page">
-        <header>
+    <div class="container page">
+        <header class="navbar navbar-default navbar-fixed-top">
             <div class="pres">
                 <div class="logo"><img src="@Url.Action(ViewBag.Logo)" /></div>
                 <div class="title"><h2>@ViewBag.Header</h2></div>
             </div>
         </header>
-        <div class="container main">
+        <main class="main">
             @RenderBody()
-        </div>
+        </main>
         <footer>&nbsp;</footer>
     </div>
 </body>

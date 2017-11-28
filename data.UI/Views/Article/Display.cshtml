@@ -8,17 +8,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<article class="row">
+<article>
     <header class="manager-page-title">
         <div class="title">
             <h1><span>@Model.Title</span></h1>
         </div>
         <div class="description"><h2>@Model.Description</h2></div>
     </header>
-    <div class="col-md-12">
+    <div class="container-fluid">
         @if (Model.PagesGlobe != null)
         {
-            <div class="pager-container">
+            <div class="row pager-container">
                 <div id="pager">
                     <ul>
                         <li class="nav-prev"><span>&lsaquo;</span></li>
@@ -27,7 +27,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="img-list-container">
+            <div class="row img-list-container">
                 <div class="img-list">
                     <ul id="pagination">
                         <li>

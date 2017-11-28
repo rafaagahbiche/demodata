@@ -57,8 +57,9 @@
 
 .img-list-container {
     position: absolute;
-    width: 65%;
+    width: 85%;
     border: 1px solid #DEDCDC;
+    text-align: left;
 }
 
 .img-list {
@@ -105,10 +106,10 @@ article > header > div h2 {
 }
 
 article > div {
-    margin:auto;
-    text-align:left;
+    margin: auto;
+    text-align: center;
     overflow:hidden;
-    width:90%;
+    width: 100%;
 }
 
 article > label {
@@ -160,24 +161,17 @@ section.article-page {
 }
 
 div.buttons {
-		width: 50px;
-		margin-top: 15px;
-		clear:both;
-	}	
+	width: 50px;
+	margin-top: 15px;
+	clear:both;
+}	
 
-	div.buttons> input {
-		padding: 5px;
-	}
+div.buttons> input {
+	padding: 5px;
+}
 
-    div.edit-pages {
-        float:left;
-        width: 100%;
-        margin-top: 2%;
-    }
-
-/*Phone*/
-@media screen and (max-device-width: 480px) {
-    .img-list-container {
-        width: 100%;
-    }
+div.edit-pages {
+    float:left;
+    width: 100%;
+    margin-top: 2%;
 }

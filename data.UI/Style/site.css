@@ -18,8 +18,8 @@ a {
     cursor: pointer;
 }
 
-div.page {
-    width: 75%;
+.page {
+    /*width: 75%;*/
     background-color: #fff;
     margin: 0px auto 0px auto;
 }
@@ -40,51 +40,43 @@ div.page {
     box-sizing: border-box;
 }
 
-div.page > header {
-    width:70%;
-    text-align:center;
-    float:left;
+.page > header {
     border-bottom: 1px solid #008ac9;
     padding-top: 15px;
     padding-bottom: 10px;
-    position: fixed;
-    z-index: 1000;
     background-color: white;
 }
 
-div.page > header > div {
+.page > header > div {
     margin:auto;
     text-align:left;
 }
 
-div.page > header > div.pres > div {
+.page > header > div.pres > div {
     float: left;
     margin-left: 20px;
 }
 
-div.main {
-    float:left;
-    width:100%;
+.main {
     margin-top: 100px;
-    padding: 0px 12px;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
 
-div.main > div:first-child {
+.main > div:first-child {
     margin:0 auto;
     width:90%;
     position:relative;
     float:left;
 }
 
-div#article-list {
+#article-list {
     width: 22%;
     font-size: 1.4em;
 }
 
-div#article-list > div {
+#article-list > div {
     text-align: center;
     border: 1px solid #008ac9;
     color : #008ac9;
@@ -92,34 +84,34 @@ div#article-list > div {
     padding: 0.3em;
 }
 
-div#article-list > div.active {
+#article-list > div.active {
     background: #7FB5DA;
     border: 1px solid #7FB5DA;
     color: #fff;
 }
 
-div#article-list > div:last-child {
+#article-list > div:last-child {
     background: #008ac9;
     color : white;
 }
 
-div#article-list a {
+#article-list a {
     color: inherit;
 }
 
-div#article-list > div.disabled {
+#article-list > div.disabled {
     pointer-events: none;
     background-color: #f9f9f9;
     border: 1px solid #d4d4d4;
     color:#888;
 }
 
-div#article-details {
+#article-details {
     width: 78%;
     float: left;
 }
 
-div.loading-article {
+.loading-article {
     display: none;
     position: fixed;
     top: 0;
@@ -135,7 +127,7 @@ div.loading-article {
     color: #000;
 }
 
-div.loading-article::after {
+.loading-article::after {
     content: " ";
     background-image: url(../images/rolling.gif);
     background-size: cover;
@@ -145,52 +137,48 @@ div.loading-article::after {
     height: 75px;
 }
 
-div.main div.form-horizontal {
+.main div.form-horizontal {
     margin:auto;
     width:90%;
 }
 
-div.article-buttons {
+.article-buttons {
     z-index: 500;
 }
 
-div.article-buttons > div {
+.article-buttons > div {
     float: left;
     width: 32%;
     margin-right: 0.3em;
 }
 
-div.article-buttons a {
+.article-buttons a {
     text-align: center;
     text-transform: uppercase;
     font-size: 1.5em;
     color: white;
 }
 
-div.article-buttons > div.save > a > div {
+.article-buttons > div.save > a > div {
     background-color: #51c900;
     padding: .6em;
 }
 
-div.article-buttons > div.delete > a > div {
+.article-buttons > div.delete > a > div {
     background-color: black;
     padding: .6em;
 }
 
-div.article-buttons > div.view > a > div {
+.article-buttons > div.view > a > div {
     background-color: #feb0be;
     padding: .6em;
 }
 
-div#article {
+#article {
     margin-top: 25px;
     float: left;
     width: 100%;
 }
-
-/*
-    Article page mode edit
-*/
 
 div.article-buttons > label {
     font-weight: bold;
@@ -231,15 +219,15 @@ div.page-buttons > a {
     display: inline-block;
 }
 
-    div.page-buttons > a.save-page {
-        background-color: #51c900;
-        margin-right: 5px;
-    }
+div.page-buttons > a.save-page {
+    background-color: #51c900;
+    margin-right: 5px;
+}
 
-    div.page-buttons > a.delete-page {
-        background-color: #000;
-        margin-left: 5px;
-    }
+div.page-buttons > a.delete-page {
+    background-color: #000;
+    margin-left: 5px;
+}
 
 .clearfix:before, .clearfix:after {
 	content: " ";
@@ -438,56 +426,3 @@ div.edit-pages > div.col-md-10 {
     width: 595px;
     float: left;
 }
-
-/*Phone*/
-@media screen and (max-device-width: 480px) {
-    div.page {
-        width: 100%;
-        /*min-height: 100% !important;*/ 
-        font-size: 45%;
-    }
-
-    .ui-mobile .ui-page-active {
-        overflow: auto !important;
-        overflow-x: scroll !important;
-        /*min-height: inherit !important;*/
-        display: inherit !important;
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-    }
-
-    div.page > header {
-        width:100%;
-        position: relative;
-    }
-
-    div.page > header > div > a > picture {
-        height: 2.5em;
-    }
-
-    div.page > header > div > a > picture::after {
-        width:2.5em;
-        height:2.5em;
-    }
-
-    div.main {
-        width:100%;
-        margin-top:0;
-        padding:0;
-    }
-
-    div.pager-container {
-        display: none;
-    }
-
-    .manager-page-title h1 {
-        font-size: 3em;
-    }
-
-    article > div {
-        width:auto;
-    }
-}
-
-	
