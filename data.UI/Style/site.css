@@ -16,6 +16,7 @@ body {
 a {
     text-decoration: none !important;
     cursor: pointer;
+    color: inherit;
 }
 
 .page {
@@ -29,10 +30,10 @@ a {
     padding-bottom: 0.7em;
     padding-left: 0.3em;
     padding-right: 0.3em;
+    width: 595px;
 }
 
 .page textarea {
-    width: 595px;
     height: 10em;
     resize: none;
     display:inline-block;
@@ -75,33 +76,39 @@ a {
     font-size: 1.4em;
 }
 
-#article-list > div {
+.article-link {
     text-align: center;
     border: 1px solid #008ac9;
-    color : #008ac9;
     margin-bottom: 0.5em;
     padding: 0.3em;
+    width: 230px;
 }
 
-#article-list > div.active {
+.article-link > a {
+    color : #008ac9;
+}
+
+.article-link.active {
     background: #7FB5DA;
     border: 1px solid #7FB5DA;
+}
+
+.article-link.plus {
+    background: #008ac9;
+}
+
+.article-link.plus > a, 
+.article-link.active > a {
     color: #fff;
 }
 
-#article-list > div:last-child {
-    background: #008ac9;
-    color : white;
-}
-
-#article-list a {
-    color: inherit;
-}
-
-#article-list > div.disabled {
+.article-link.disabled {
     pointer-events: none;
     background-color: #f9f9f9;
     border: 1px solid #d4d4d4;
+}
+
+.article-link.disabled > a {
     color:#888;
 }
 
@@ -149,29 +156,32 @@ a {
 .article-buttons > div {
     float: left;
     width: 32%;
-    margin-right: 0.3em;
+    margin-right: 5px;
 }
 
 .article-buttons a {
     text-align: center;
     text-transform: uppercase;
-    font-size: 1.5em;
+    font-size: 20px;
     color: white;
 }
 
+.article-buttons a:hover {
+    color: #fff;
+}
 .article-buttons > div.save > a > div {
     background-color: #51c900;
-    padding: .6em;
+    padding: 8px;
 }
 
 .article-buttons > div.delete > a > div {
     background-color: black;
-    padding: .6em;
+    padding: 8px;
 }
 
 .article-buttons > div.view > a > div {
     background-color: #feb0be;
-    padding: .6em;
+    padding: 8px;
 }
 
 #article {
@@ -213,9 +223,8 @@ div.page-buttons {
 }
 
 div.page-buttons > a {
-    padding: 0 25px 0 25px;
+    padding: 3px 25px 3px 25px;
     color: #fff;
-    display: inline-block;
 }
 
 div.page-buttons > a.save-page {
@@ -258,8 +267,7 @@ div.del-confirm {
 	background-color:white;
     padding: 2em;
 	margin:auto;
-	width:28%;
-    height: 50px;
+	width:38%;
     top:40%;
     right:0;
     left:0;
