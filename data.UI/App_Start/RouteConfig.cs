@@ -27,7 +27,7 @@ namespace data.UI
 			);
 			routes.MapRoute(
 				name: "article-viewer",
-				url: "article-viewer/{title}",
+				url: "article-viewer/{id}/{title}",
 				defaults: new { controller = "Article", action = "Display", id = UrlParameter.Optional }
 			);
 		}

@@ -446,6 +446,7 @@
     <Content Include="Scripts\tinymce\utils\form_utils.js" />
     <Content Include="Scripts\tinymce\utils\mctabs.js" />
     <Content Include="Scripts\tinymce\utils\validate.js" />
+    <Content Include="Style\edit.css" />
     <Content Include="Style\pager.css" />
     <Content Include="Style\site.css" />
     <Content Include="Web.config">

@@ -16,8 +16,10 @@
         <div class="col-md-12 description"><h3>@Model.Description</h3></div>
     </header>
     <div class="row">
-        @if (Model.PagesGlobe != null)
+        @if (Model.PagesGlobe != null && Model.PagesGlobe.Count > 0)
         {
+            if (Model.PagesGlobe.Count > 1)
+            {
             <div class="col-md-12 pager-container">
                 <div id="pager">
                     <ul>
@@ -27,6 +29,7 @@
                     </ul>
                 </div>
             </div>
+            }
             <div class="col-md-12 img-list-container">
                 <div class="img-list">
                     <ul id="pagination">

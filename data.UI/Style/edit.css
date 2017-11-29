@@ -1,0 +1,17 @@
+﻿.page {
+    width: 75%;
+    position: relative;
+    margin: 0 auto 0 auto;
+}
+
+.page > header {
+    width: 100%;
+    float: left;
+    position: fixed;
+    z-index: 100;
+}
+
+main {
+    float: left;
+    width: 100%;
+}

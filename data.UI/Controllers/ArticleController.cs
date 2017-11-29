@@ -14,10 +14,10 @@ namespace demo.UI.Controllers
 			this.service = service;
 		}
 
-		[Route("article-viewer/{title}")]
-		public ViewResult Display(string title)
+		[Route("article-viewer/{id}/{title}")]
+		public ViewResult Display(int id)
 		{
-			return View(service.Get(title));
+			return View(service.Get(id));
 		}
 
 		[HttpPost]
