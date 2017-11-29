@@ -159,19 +159,3 @@ section.article-page {
     padding-left: 3%;
     padding-right: 3%;
 }
-
-div.buttons {
-	width: 50px;
-	margin-top: 15px;
-	clear:both;
-}	
-
-div.buttons> input {
-	padding: 5px;
-}
-
-div.edit-pages {
-    float:left;
-    width: 100%;
-    margin-top: 2%;
-}

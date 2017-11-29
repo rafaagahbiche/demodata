@@ -14,12 +14,11 @@ body {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
     cursor: pointer;
 }
 
 .page {
-    /*width: 75%;*/
     background-color: #fff;
     margin: 0px auto 0px auto;
 }
@@ -139,11 +138,12 @@ a {
 
 .main div.form-horizontal {
     margin:auto;
-    width:90%;
+    width:80%;
 }
 
 .article-buttons {
-    z-index: 500;
+    float: left;
+    width: 100%;
 }
 
 .article-buttons > div {
@@ -213,7 +213,6 @@ div.page-buttons {
 }
 
 div.page-buttons > a {
-    width: 70px;
     padding: 0 25px 0 25px;
     color: #fff;
     display: inline-block;
@@ -314,8 +313,6 @@ div.del-confirm > div.del-warn > a > picture::after {
     color:black;
 }
 
-/*Loading bloc while updating page*/
-
 div.loading {
     display: none;
     position: absolute;
@@ -414,7 +411,6 @@ li.active a, li.active a:hover {
 
 div.edit-pages {
     float:left;
-    width: 100%;
     margin-top: 2%;
 }
 
@@ -422,7 +418,7 @@ div.edit-pages > div label {
     font-weight: bold;
 }
 
-div.edit-pages > div.col-md-10 {
+div.edit-pages > div.tab-content {
     width: 595px;
     float: left;
 }
