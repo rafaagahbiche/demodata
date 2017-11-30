@@ -250,8 +250,6 @@ div.page-buttons > a.delete-page {
     font-family:'icomoon';
 }
 
-/*Deleting bloc warning*/
-
 div.del-background {
 	z-index:1;
     width: 595px;
@@ -354,6 +352,28 @@ div.hidden-bloc {
     display:none;
 }
 
+.article-delete {
+    position: relative;
+    height: 100%;
+}
+
+.article-delete > .background {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    display: inline-block;
+    opacity: 0.7;
+}
+
+.article-delete > .confirm {
+    width: 30%;
+    display: block;
+    opacity: 1.0;
+    border: 1px solid double;
+    position: absolute;
+}
+
 ul.tab-links {
     margin-bottom:0px;
     padding-left:0px;
@@ -370,6 +390,8 @@ ul.tab-links > li.disabled > a {
 
 .tab-content {
     position: relative;
+    width: 595px;
+    float: left;
 }
 
 .tab-content > div.active {
@@ -424,9 +446,4 @@ div.edit-pages {
 
 div.edit-pages > div label {
     font-weight: bold;
-}
-
-div.edit-pages > div.tab-content {
-    width: 595px;
-    float: left;
 }

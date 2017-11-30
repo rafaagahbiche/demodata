@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace data.UI
+namespace demo.UI
 {
 	public class MvcApplication : System.Web.HttpApplication
     {
@@ -9,6 +9,7 @@ namespace data.UI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 		}
 
 		protected void Session_Start()

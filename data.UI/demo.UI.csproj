@@ -167,6 +167,7 @@
     <Content Include="images\edit2.png" />
     <Content Include="images\edit64.png" />
     <Content Include="images\rolling.gif" />
+    <Content Include="Scripts\backoffice\jquery.buttons.js" />
     <Content Include="Scripts\backoffice\manager.article.js" />
     <Content Include="Scripts\backoffice\init.js" />
     <Content Include="Scripts\backoffice\jquery.article.paginate.js" />
@@ -449,11 +450,13 @@
     <Content Include="Style\edit.css" />
     <Content Include="Style\pager.css" />
     <Content Include="Style\site.css" />
+    <Content Include="Views\Shared\404.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -489,6 +492,7 @@
     <Content Include="Views\Page\Display.cshtml" />
     <Content Include="Views\Page\Buttons.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Article\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
