@@ -34,7 +34,7 @@ a {
 }
 
 .page textarea {
-    height: 10em;
+    height: 80px;
     resize: none;
     display:inline-block;
     box-sizing: border-box;
@@ -79,9 +79,10 @@ a {
 .article-link {
     text-align: center;
     border: 1px solid #008ac9;
-    margin-bottom: 0.5em;
-    padding: 0.3em;
+    margin-bottom: 15px;
+    padding: 8px;
     width: 230px;
+    box-sizing: border-box;
 }
 
 .article-link > a {
