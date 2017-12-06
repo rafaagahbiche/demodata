@@ -347,22 +347,42 @@ div.hidden-bloc {
     background: rgba(255, 255, 255, 0.8);
 }
 
-.article-delete > .background {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    background: #fff;
-    display: inline-block;
-    opacity: 0.7;
-}
-
 .article-delete > .confirm {
     width: 30%;
     border: 1px solid #566cf7;
     text-align: center;
     color: #fff;
-    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
     background: #97a2e8;
+    padding: 15px 0 15px;
+    position: fixed;
+    left: 30%;
+    top: 50%;
+}
+
+.article-delete > .confirm > .message {
+    margin-bottom: 35px;
+}
+
+.article-delete > .confirm > .buttons > div.ok {
+    display: inline-block;
+    margin-right: 20px;
+    background: #000;
+    padding: 0 5px;
+}
+
+.article-delete > .confirm > .buttons > div.ok > a {
+    color: #fff;
+}
+
+.article-delete > .confirm > .buttons > div.cancel {
+    display: inline-block;
+    margin-left: 20px;
+    color: #000;
+    background: #fff;
+    cursor: pointer;
+    padding: 0 5px;
 }
 
 ul.tab-links {

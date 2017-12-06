@@ -8,7 +8,7 @@
             },
 
             turnOff: function () {
-                $this.hide();
+                $this.fadeOut(1000);
                 return $this;
             }
         }

@@ -20,7 +20,7 @@ namespace demo.UI.Controllers
 			return View(service.Get(id));
 		}
 
-		[HttpPost]
+		[HttpGet]
 		public PartialViewResult Delete(int id)
 		{
 			if (id != -1)

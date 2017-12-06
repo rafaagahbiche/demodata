@@ -56,24 +56,33 @@ var bindSaveArticleEvent = function () {
 
 var bindDeleteArticleEvent = function () {
     $('a.delete-article').bind('click', function (e) {
-        var articleId = $('div#article').children('input[type="hidden"]#Id').val();
-        loadingArticle.turnOn();
-        $.ajax({
-            url: this.href,
-            type: "POST",
-            data: { id: articleId },
-            success: function (data) {
-                $('div#article-details').html(data);
-                deleteCurrentArticleTab();
-                bindEvents();
-                disableMenuItems.turnOff();
-                loadingArticle.turnOff();
-            }
-        });
-
-        e.preventDefault();
+        $('.article-delete').show();
+    });
+    $('.article-delete').find('.cancel').bind('click', function (e) {
+        $('.article-delete').fideOut(1000);
     });
 }
+
+
+//$('a.delete-article').bind('click', function (e) {
+    //    var articleId = $('div#article').children('input[type="hidden"]#Id').val();
+    //    loadingArticle.turnOn();
+    //    $.ajax({
+    //        url: this.href,
+    //        type: "POST",
+    //        data: { id: articleId },
+    //        success: function (data) {
+    //            $('div#article-details').html(data);
+    //            deleteCurrentArticleTab();
+    //            bindEvents();
+    //            disableMenuItems.turnOff();
+    //            loadingArticle.turnOff();
+    //        }
+    //    });
+
+    //    e.preventDefault();
+    //});
+
 
 var bindAddArticleTabEvent = function () {
     var addArticleTab = $("a#add-article-tab").addNewMenuItem({

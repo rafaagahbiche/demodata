@@ -5,12 +5,13 @@
     <div class="save">
         <a class="save-article" href="@Url.Action("Save", "Article")"><div>Save</div></a>
     </div>
+    <div class="delete">
+        <a class="delete-article"><div>Delete</div></a>
+        @*<a class="delete-article" href="@Url.Action("Delete", "Article")"><div>Delete</div></a>*@
+    </div>
     <div class="view">
         @Html.HtmlActionLink("<div>Preview</div>", "Display", "Article",
                                 new { id = Model.Id, title = Model.Title.FriendlyTitle() },
                                 new { @class = "view-article", target = "_blank" })
-    </div>
-    <div class="delete">
-        <a class="delete-article" href="@Url.Action("Delete", "Article")"><div>Delete</div></a>
     </div>
 </div>

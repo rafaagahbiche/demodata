@@ -9,10 +9,21 @@ var turnOffDeleteStyle = function () {
     $("div.page-delete").hide();
 }
 
+var turnOffDeleteArticleBox = function () {
+    $('.article-delete').hide();
+}
+
 // Called by Page.Delete OnComplete
 var selectFirstTab = function () {
     deleteCurrentTab();
     bindSelectedPageEvents();
+}
+
+// Called by Article.Delete OnComplete
+var selectFirstArticle = function () {
+    deleteCurrentArticleTab();
+    bindEvents();
+    disableMenuItems.turnOff();
 }
 
 var bindEvents = function () {
