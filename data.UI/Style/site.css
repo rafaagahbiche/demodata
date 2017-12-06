@@ -57,14 +57,17 @@ a {
     margin-left: 20px;
 }
 
-.main {
+main {
+    position: relative;
     margin-top: 100px;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    float: left;
+    width: 100%;
 }
 
-.main > div:first-child {
+main > div:first-child {
     margin:0 auto;
     width:90%;
     position:relative;
@@ -113,7 +116,7 @@ a {
 }
 
 #article-details {
-    width: 78%;
+    width: 70%;
     float: left;
 }
 
@@ -141,11 +144,6 @@ a {
     position: absolute;
     width: 75px;
     height: 75px;
-}
-
-.main div.form-horizontal {
-    margin:auto;
-    width:80%;
 }
 
 .article-buttons {
@@ -235,19 +233,6 @@ div.page-buttons > a.save-page {
 div.page-buttons > a.delete-page {
     background-color: #000;
     margin-left: 5px;
-}
-
-.clearfix:before, .clearfix:after {
-	content: " ";
-	display: table;
-}
-
-.clearfix:after {
-	clear: both;
-}       
-
-[class^="icon-"], [class*=" icon-"] {
-    font-family:'icomoon';
 }
 
 div.del-background {
@@ -353,8 +338,12 @@ div.hidden-bloc {
 }
 
 .article-delete {
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .article-delete > .background {
@@ -368,10 +357,11 @@ div.hidden-bloc {
 
 .article-delete > .confirm {
     width: 30%;
-    display: block;
-    opacity: 1.0;
-    border: 1px solid double;
-    position: absolute;
+    border: 1px solid #566cf7;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background: #97a2e8;
 }
 
 ul.tab-links {

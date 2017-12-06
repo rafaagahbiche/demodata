@@ -24,7 +24,7 @@
                     type: "POST",
                     data: pageViewModel,
                     success: function (data) {
-                        $('div#pageinfos').html(data);
+                        $(settings.containerSelector).html(data);
                         if (oldPageId == -1) {
                             $('li.active').find('a').html($('li.tab').length);
                             AssignTabToEditor();

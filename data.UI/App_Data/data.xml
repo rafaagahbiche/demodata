@@ -27,10 +27,40 @@ but feelings were hurt</description>
   </articles>
   <pages>
     <page id="1">
-      <content>&amp;lt;h3 id="d68f" class="graf graf--h3 graf-after--p"&amp;gt;&amp;lt;span class="markup--strong markup--h3-strong"&amp;gt;&amp;lt;em&amp;gt;&amp;lt;strong&amp;gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus risus neque, vestibulum id nisl sagittis, tempor pretium quam. Suspendisse id scelerisque enim, nec mattis libero&amp;lt;/strong&amp;gt;&amp;lt;/em&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;
-&amp;lt;h3 class="graf graf--h3 graf-after--p"&amp;gt;&amp;lt;span class="markup--strong markup--h3-strong"&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;
-&amp;lt;h3 class="graf graf--h3 graf-after--p"&amp;gt;&amp;lt;span class="markup--strong markup--h3-strong"&amp;gt;New Management&amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;
-&amp;lt;p id="7317" class="graf graf--p graf-after--h3"&amp;gt;&amp;lt;em class="markup--em markup--p-em"&amp;gt;Were you hired by a general manager who just got fired? Does the franchise keep bringing up &amp;amp;ldquo;organizational change&amp;amp;rdquo; in press conferences? Did the last president of basketball operations love you, but now you&amp;amp;rsquo;re dealing with Steve Mills? Call the hotline now! There is no obligation.&amp;amp;nbsp;&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;</content>
+      <content>&amp;lt;div class="row" style="margin: 40px auto 40px auto; background-color: #e9e9e9;"&amp;gt;
+&amp;lt;div class="col-md-6" style="font-size: 20px;"&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;span style="color: #c0c0c0;"&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;em&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;span style="color: #c0c0c0;"&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;em&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;span style="color: #c0c0c0;"&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;em&amp;gt;This is a Conte&amp;lt;/em&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;strong style="color: #c0c0c0;"&amp;gt;&amp;lt;em&amp;gt;nt Manager application built on MVC5 and jQuery.&amp;lt;/em&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;span style="color: #c0c0c0;"&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;em&amp;gt;The content manager is presented with traditional functionalities including creating, editing and deleting articles. Each article has a title, a description and multiple pages that will represent its content.&amp;lt;/em&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class="col-md-6" style="text-align: center;"&amp;gt;&amp;lt;img style="width: 100%;" src="/images/article-manager.png" alt="" /&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div style="margin: 40px auto 40px auto;"&amp;gt;
+&amp;lt;p&amp;gt;This application allows the end user to create multiple articles (defined by their title and desription) and also relate pages to the article which wil concist its content.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;the main page vertical menu contains all articles created.&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class="row" style="margin: 40px auto 40px auto;"&amp;gt;
+&amp;lt;div class="col-md-4" style="text-align: center;"&amp;gt;&amp;lt;img style="width: 70%;" src="/images/article-menu.png" alt="" /&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class="col-md-8"&amp;gt;
+&amp;lt;p&amp;gt;The menu on the left is used to navigate between the existing articles. To add a new article, the end-user can click on the last + item and an empty article will be shown.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;To modifiy an article, simply click on the title of the article on the menu, the title and description can be modified and then save the modification by clicking on the green save button above.&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img style="width: 100%;" src="/images/article-buttons.png" alt="" /&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;To preview the article, click on the pink Preview button. This will take you to Article Reader application.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;note that the friendly url&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The black Delete button will prompt a confirm dialog to confirm or cancel deletion of the article&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class="row" style="margin: 40px auto 40px auto;"&amp;gt;
+&amp;lt;div class="col-md-6"&amp;gt;
+&amp;lt;p&amp;gt;Under the description, all the pages related to the article are presented in an editor. By clicking on the tabs, you can view each page, edit it and save it. A page can also be deleted by clicking on the black button and confirm.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The + tab allows you to create new page inside the current article&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class="col-md-6"&amp;gt;&amp;lt;img style="width: 100%;" src="/images/text-editor.png" alt="" /&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div&amp;gt;
+&amp;lt;p&amp;gt;Eeach button action support AJAX update, either with&amp;amp;nbsp;&amp;amp;nbsp;@Ajax.ActionLink or with jQuery&amp;amp;nbsp;$.ajax functionality,&amp;amp;nbsp;eleminating the need to reload the entire page.&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;</content>
       <articleId>2</articleId>
     </page>
     <page id="2">
