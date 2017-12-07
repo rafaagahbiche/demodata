@@ -1,8 +1,9 @@
 ﻿namespace demo.data
 {
-	using System;
-	using System.Linq;
-	using System.Xml.Linq;
+    using Kaliko;
+    using System;
+    using System.Linq;
+    using System.Xml.Linq;
 
 	public class ArticleManager: Manager<ArticleData>, IManager<ArticleData>
 	{
@@ -30,33 +31,49 @@
 
 		public void Delete(int id)
 		{
-			var articleToDelete = from article in context.DataXml
-					.Element("data")
-					.Element("articles")
-					.Descendants("article")
-							   let attr = article.Attribute("id")
-							   where attr != null && attr.Value == id.ToString()
-							   select article;
+            try
+            {
+                var articleToDelete = from article in context.DataXml
+                        .Element("data")
+                        .Element("articles")
+                        .Descendants("article")
+                                      let attr = article.Attribute("id")
+                                      where attr != null && attr.Value == id.ToString()
+                                      select article;
 
-			if(articleToDelete != null)
-			{
-				articleToDelete.First().Remove();
-				context.SaveFile();
-			}
+                if (articleToDelete != null)
+                {
+                    articleToDelete.First().Remove();
+                    context.SaveFile();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
 		}
 
 		public int Insert(ArticleData item)
 		{
-			var newId = GetMaxId("//data/articles/article") + 1;
-			var newItem = new XElement("article", 
-				new XElement("title", item.Title),
-				new XElement("description", item.Description));
-			var newIdAttr = new XAttribute("id", newId);
-			newItem.Add(newIdAttr);
-			context.DataXml
-				.Element("data")
-				.Element("articles").Add(newItem);
-			context.SaveFile();
+            var newId = -1;
+            try
+            {
+                newId = GetMaxId("//data/articles/article") + 1;
+                var newItem = new XElement("article",
+                    new XElement("title", item.Title),
+                    new XElement("description", item.Description));
+                var newIdAttr = new XAttribute("id", newId);
+                newItem.Add(newIdAttr);
+                context.DataXml
+                    .Element("data")
+                    .Element("articles").Add(newItem);
+                context.SaveFile();
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
+
 			return newId;
 		}
 
@@ -98,7 +115,10 @@
 				context.SaveFile();
 				updateSucceeded = true;
 			}
-			catch { }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
 
 			return updateSucceeded;
 		}

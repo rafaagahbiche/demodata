@@ -1,8 +1,9 @@
 ﻿namespace demo.data
 {
-	using System;
-	using System.Linq;
-	using System.Xml.Linq;
+    using Kaliko;
+    using System;
+    using System.Linq;
+    using System.Xml.Linq;
 
 	public class PageManager : Manager<PageData>, IManager<PageData>
 	{
@@ -27,35 +28,51 @@
 
 		public int Insert(PageData item)
 		{
-			var newId = GetMaxId("//data/pages/page") + 1;
-			var newItem = new XElement("page",
-				new XElement("content", item.Content),
-				new XElement("articleId", item.ArticleId));
-			var newIdAttr = new XAttribute("id", newId);
-			newItem.Add(newIdAttr);
-			context.DataXml
-				.Element("data")
-				.Element("pages").Add(newItem);
+            var newId = -1;
+            try
+            {
+                newId = GetMaxId("//data/pages/page") + 1;
+                var newItem = new XElement("page",
+                    new XElement("content", item.Content),
+                    new XElement("articleId", item.ArticleId));
+                var newIdAttr = new XAttribute("id", newId);
+                newItem.Add(newIdAttr);
+                context.DataXml
+                    .Element("data")
+                    .Element("pages").Add(newItem);
 
-			context.SaveFile();
+                context.SaveFile();
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
+
 			return newId;
 		}
 
 		public void Delete(int id)
 		{
-			var pageToDelete = from page in context.DataXml
-					.Element("data")
-					.Element("pages")
-					.Descendants("page")
-					let attr = page.Attribute("id")
-					where attr != null && attr.Value == id.ToString()
-					select page;
+            try
+            {
+                var pageToDelete = from page in context.DataXml
+                        .Element("data")
+                        .Element("pages")
+                        .Descendants("page")
+                                   let attr = page.Attribute("id")
+                                   where attr != null && attr.Value == id.ToString()
+                                   select page;
 
-			if(pageToDelete != null)
-			{
-				pageToDelete.First().Remove();
-				context.SaveFile();
-			}
+                if (pageToDelete != null)
+                {
+                    pageToDelete.First().Remove();
+                    context.SaveFile();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
 		}
 
 		public bool Update(PageData item)
@@ -74,7 +91,10 @@
 				context.SaveFile();
 				updateSucceeded = true;
 			}
-			catch { }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
 
 			return updateSucceeded;
 		}

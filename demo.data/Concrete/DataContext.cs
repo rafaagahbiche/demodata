@@ -2,6 +2,8 @@
 {
 	using System.Web;
 	using System.Xml.Linq;
+    using Kaliko;
+    using System;
 
 	public class DataContext: IDataContext
 	{
@@ -12,25 +14,54 @@
 
 		public DataContext(string originalDataPath, string userDataPath)
 		{
-			this.originalPath = HttpContext.Current.Request.MapPath(originalDataPath);
-			this.userPath = HttpContext.Current.Request.MapPath(userDataPath);
+            try
+            {
+                this.originalPath = HttpContext.Current.Request.MapPath(originalDataPath);
+                this.userPath = HttpContext.Current.Request.MapPath(userDataPath);
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
+
 		}
 
 		public DataContext(string originalDataPath)
 		{
-			this.userPath = HttpContext.Current.Request.MapPath(originalDataPath);
+            try
+            {
+                this.userPath = HttpContext.Current.Request.MapPath(originalDataPath);
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
 		}
 
 		public void SaveFile()
 		{
-			_dataXml.Save(userPath);
-		}
+            try
+            {
+                _dataXml.Save(userPath);
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
+        }
 
 		private void CopyData()
 		{
-			_dataXml = XDocument.Load(originalPath);
-			var newCopy = new XDocument(_dataXml);
-			newCopy.Save(userPath);
+            try
+            {
+                _dataXml = XDocument.Load(originalPath);
+                var newCopy = new XDocument(_dataXml);
+                newCopy.Save(userPath);
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex, Logger.Severity.Critical);
+            }
 		}
 
 		public XDocument DataXml
@@ -42,10 +73,21 @@
                     var newSession = HttpContext.Current.Session.IsNewSession;
 					if (newSession && !string.IsNullOrEmpty(originalPath))
 					{
-						CopyData();
+                        Logger.Write(string.Format("New session the {0} at :{1}", 
+                            System.DateTime.Today, 
+                            System.DateTime.Now), Logger.Severity.Info);
+                        CopyData();
 					}
 
-					_dataXml = XDocument.Load(userPath);
+                    try
+                    {
+                        _dataXml = XDocument.Load(userPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Write(ex, Logger.Severity.Critical);
+                    }
+
 				}
 
 				return _dataXml;

@@ -2,7 +2,7 @@
 <data>
   <articles>
     <article id="1">
-      <title>Kyrie Irving yuu</title>
+      <title>Kyrie Irving</title>
       <description>The Boston Celtics, who have won 16 straight and own the league's best record, are rightly seen as strong contenders in the Eastern Conference this season, along with the three-time defending conference champion Cleveland Cavaliers.
 
 </description>
@@ -19,6 +19,10 @@ but feelings were hurt</description>
     <article id="3">
       <title>Interview questions</title>
       <description>Some questions I have been asked during interviews</description>
+    </article>
+    <article id="5">
+      <title>TODO s</title>
+      <description>Still to do in this project</description>
     </article>
   </articles>
   <pages>
@@ -103,10 +107,6 @@ but feelings were hurt</description>
     </page>
     <page id="29">
       <content>&amp;lt;p&amp;gt;New stuff&amp;lt;/p&amp;gt;</content>
-      <articleId>6</articleId>
-    </page>
-    <page id="30">
-      <content>&amp;lt;p&amp;gt;sdSFDQ&amp;amp;nbsp;&amp;lt;/p&amp;gt;</content>
       <articleId>6</articleId>
     </page>
   </pages>

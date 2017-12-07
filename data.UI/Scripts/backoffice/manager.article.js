@@ -59,7 +59,7 @@ var bindDeleteArticleEvent = function () {
         $('.article-delete').show();
     });
     $('.article-delete').find('.cancel').bind('click', function (e) {
-        $('.article-delete').fideOut(1000);
+        $('.article-delete').hide();
     });
 }
 

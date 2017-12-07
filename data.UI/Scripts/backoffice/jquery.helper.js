@@ -19,6 +19,7 @@
     $.fn.disable = function () {
         var $base = $(this);
         return {
+            count: function () { return $base.children().length; },
             turnOn: function () {
                 $base.children().each(function () {
                     if (!$(this).hasClass("disabled")) {
@@ -65,6 +66,10 @@
         var base = this;
         return this.each(function () {
             base.bind('click', function (e) {
+                if (settings.menuItems.count() > 9) {
+                    return;
+                }
+
                 $(settings.activeLinkSelector).removeClass('active');
                 settings.menuItems.turnOn();
                 $.ajax({
