@@ -75,7 +75,7 @@ var bindEditDeletePageEvent = function () {
 
     $('.edit-del-cancel').bind('click', function () {
         disablePageTabs.turnOff();
-        $("div.page-delete").fideOut(1000);
+        $("div.page-delete").fadeOut(1000);
     });
 }
 
