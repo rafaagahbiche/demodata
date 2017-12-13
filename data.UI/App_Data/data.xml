@@ -52,9 +52,18 @@ but feelings were hurt</description>
       <articleId>1</articleId>
     </page>
     <page id="5">
-      <content>&amp;lt;p&amp;gt;Lorem ipsum dolor sit amet, ius quando aliquam eu, pri te delenit atomorum consequat. Facilis scribentur consectetuer sit cu, pro habeo intellegat appellantur id. Vel ea nibh illud consectetuer. Usu et quodsi habemus, qui modo discere ut, qui at legere putant tibique.&amp;lt;/p&amp;gt;
-&amp;lt;p&amp;gt;In eum magna graeco iracundia. Sea accumsan cotidieque ut, quaeque phaedrum complectitur sit ut. Ei vix legere feugait deleniti. Cetero impetus quaerendum sea id. Sit ne sanctus legimus. Has ea persius erroribus elaboraret, mei agam percipitur in, an mea erant graecis.&amp;lt;/p&amp;gt;
-&amp;lt;p&amp;gt;Sed everti oportere assueverit ut, et sint affert antiopam qui. Id sint feugait suscipit eam, elit intellegebat eam ut. An eos dolore meliore platonem, nec unum fabulas referrentur et. Placerat cotidieque pro te. An cum cetero dolorum theophrastus. Elitr affert ex vim, malis aeque et cum, eirmod rationibus nam in.&amp;lt;/p&amp;gt;</content>
+      <content>&amp;lt;div class="row" style="padding: 0 90px; margin: 15px auto 40px auto;"&amp;gt;
+&amp;lt;div class="col-md-12" style="font-size: 20px;"&amp;gt;
+&amp;lt;p&amp;gt;After writing an article with multiple pages as content, Article reader is the application that allows the end user to display the article content.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The page is based on responsive client-side layout based on Bootstrap&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class="row" style="padding: 0 90px; margin: 40px auto 40px auto;"&amp;gt;
+&amp;lt;div class="col-md-12"&amp;gt;
+&amp;lt;p&amp;gt;Since the article is brought down to different pages, I created a slider as a custom jQuery plugin to navigate through the pages and never reload the page.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;To navigate through the pages, the end user can use either the left/right arrows on the top of the pages or the left/right keyboard&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;</content>
       <articleId>1</articleId>
     </page>
     <page id="6">

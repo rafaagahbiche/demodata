@@ -35,7 +35,7 @@ a {
 
 .page textarea {
     height: 80px;
-    resize: none;
+    resize: both;
     display:inline-block;
     box-sizing: border-box;
 }
